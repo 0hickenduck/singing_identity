@@ -1,0 +1,1641 @@
+import os
+import shutil
+import zipfile
+
+def create_html(output_path, title, subtitle, badge, zip_name):
+    html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>__TITLE__</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #080a10;
+            --bg-surface: rgba(17, 22, 37, 0.7);
+            --bg-card: rgba(26, 32, 53, 0.45);
+            --border-glow: rgba(99, 102, 241, 0.15);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.45);
+            --secondary: #14b8a6;
+            --secondary-glow: rgba(20, 184, 166, 0.45);
+            --accent: #d946ef;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(217, 70, 239, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.04) 0%, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        header {
+            max-width: 1400px;
+            margin: 40px auto 20px auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 24px;
+        }
+
+        .logo-section h1 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #fff 30%, #a5b4fc 70%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-section p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .demo-badge {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 100px;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #a5b4fc;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(20, 184, 166, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px;
+            border-radius: 12px;
+            width: fit-content;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 12px 24px;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--text-main);
+            box-shadow: 0 4px 15px var(--primary-glow);
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Theory Card */
+        .theory-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .theory-text h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theory-text h2 span {
+            color: var(--primary);
+        }
+
+        .theory-text p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .theory-points {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .point-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(20, 184, 166, 0.15);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-top: 3px;
+        }
+
+        .point-item p {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .math-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid var(--primary);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: #a5b4fc;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .math-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Demo Grid */
+        .demo-section-header {
+            margin-bottom: 24px;
+        }
+
+        .demo-section-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .demo-section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        /* Premium Audio Card */
+        .audio-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .audio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .audio-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.25);
+            background: rgba(26, 32, 53, 0.6);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .audio-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .tag-source { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
+        .tag-target { background: rgba(217, 70, 239, 0.15); color: #f472b6; }
+        .tag-converted { background: rgba(20, 184, 166, 0.15); color: #2dd4bf; }
+
+        .card-title-area h4 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .card-title-area p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Waveform Player */
+        .player-interface {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .custom-player {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .play-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+        }
+
+        .play-btn:hover {
+            transform: scale(1.08);
+            background: #4f46e5;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+        }
+
+        .play-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .play-btn.playing {
+            background: var(--secondary);
+            box-shadow: 0 4px 10px rgba(20, 184, 166, 0.3);
+        }
+
+        .time-slider-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .time-display {
+            font-size: 0.75rem;
+            font-family: monospace;
+            color: var(--text-muted);
+            width: 35px;
+            text-align: center;
+        }
+
+        .seek-slider {
+            flex-grow: 1;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .seek-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        .seek-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.3);
+        }
+
+        /* Equalizer Animation */
+        .equalizer {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 24px;
+            width: 35px;
+        }
+
+        .eq-bar {
+            width: 3px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 1px;
+            transition: height 0.15s ease;
+        }
+
+        .playing + .equalizer .eq-bar {
+            background-color: var(--secondary);
+            animation: bounce 0.8s infinite alternate;
+        }
+
+        .playing + .equalizer .eq-bar:nth-child(2) { animation-delay: 0.15s; }
+        .playing + .equalizer .eq-bar:nth-child(3) { animation-delay: 0.3s; }
+        .playing + .equalizer .eq-bar:nth-child(4) { animation-delay: 0.45s; }
+        .playing + .equalizer .eq-bar:nth-child(5) { animation-delay: 0.6s; }
+
+        @keyframes bounce {
+            10% { height: 6px; }
+            30% { height: 18px; }
+            60% { height: 9px; }
+            90% { height: 22px; }
+            100% { height: 4px; }
+        }
+
+        /* Grid Combinator Layout */
+        .vc-row {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        .row-header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .row-header h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-row-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .pill-badge {
+            background: rgba(20, 184, 166, 0.1);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            color: #2dd4bf;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 100px;
+            text-transform: uppercase;
+        }
+
+        .pill-badge.red {
+            background: rgba(217, 70, 239, 0.1);
+            border: 1px solid rgba(217, 70, 239, 0.2);
+            color: #f472b6;
+        }
+
+        /* Footer styling */
+        footer {
+            max-width: 1400px;
+            margin: 60px auto 0 auto;
+            padding: 30px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(217, 70, 239, 0.2));
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            border-radius: 100px;
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(217, 70, 239, 0.35));
+            border-color: rgba(217, 70, 239, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-section">
+            <h1>LinearVC & Timbre Pivoting Dashboard</h1>
+            <p>__SUBTITLE__</p>
+        </div>
+        <div class="header-actions">
+            <div class="demo-badge">
+                <span class="pulse-dot"></span>
+                __BADGE__
+            </div>
+            <a href="__ZIP_NAME__" class="download-btn" download>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Offline ZIP
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('linearvc')">Articulation & LinearVC</button>
+            <button class="tab-btn" onclick="switchTab('seedvc')">Timbre Pivoting & Seed-VC</button>
+        </div>
+
+        <!-- TAB 1: LINEAR VOICE CONVERSION -->
+        <div id="linearvc" class="tab-content active">
+            
+            <div class="theory-card">
+                <div class="theory-text">
+                    <h2>Linear Speaker Mapping <span>(Articulation 6)</span></h2>
+                    <p>LinearVC projects standard acoustic parameters (like Mel-spectrograms) between speakers using simple linear translations or affine transformations. The core research hypothesis is that voice conversion can be achieved by shifting the acoustic manifold while preserving local structures representing articulation.</p>
+                    <div class="theory-points">
+                        <div class="point-item">
+                            <div class="point-icon">1</div>
+                            <p><strong>Mean-Standard Deviation Shift:</strong> Translates and scales the acoustic envelope globally. Extremely simple, yet preserves standard phonetic structures.</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon">2</div>
+                            <p><strong>Diagonal Affine Transform:</strong> Independent scale and offset per feature dimension, providing a personalized adjustment of frequency bands.</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon">3</div>
+                            <p><strong>Full Affine Transformation:</strong> Includes rotation and covariance mapping, aligning the feature manifolds across speakers globally.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="math-block">
+                        <div class="math-title">Affine Speaker Transform</div>
+                        <!-- Math equations in plain text -->
+                        y_t = W * x_t + b<br><br>
+                        W = diagonal or full matrix<br>
+                        b = translation vector<br><br>
+                        <div class="math-title" style="margin-top: 10px;">Timbre Hybrids</div>
+                        z_t = α * y_t + (1 - α) * oracle_vocal
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-section-header">
+                <h3>LinearVC comparative audios</h3>
+                <p>Demonstrating diagonal and full affine transformations alongside reconstruction baselines (Scaling 20-train 1-test).</p>
+            </div>
+
+            <!-- ROW 1: Reconstructions and baselines -->
+            <div class="vc-row">
+                <div class="row-header">
+                    <h4>Reconstructions & Speaker Embeddings</h4>
+                    <span class="pill-badge red">Baselines</span>
+                </div>
+                <div class="card-row-grid">
+                    
+                    <!-- Card 1 -->
+                    <div class="audio-card">
+                        <div class="card-header">
+                            <span class="card-tag tag-source">Reconstruction</span>
+                            <p>ID: 01</p>
+                        </div>
+                        <div class="card-title-area">
+                            <h4>Source Reconstruction</h4>
+                            <p>Original source speaker rebuilt directly.</p>
+                        </div>
+                        <div class="player-interface">
+                            <div class="custom-player">
+                                <button class="play-btn" onclick="togglePlay('audio-linear-1')">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="time-slider-container">
+                                    <span class="time-display">0:00</span>
+                                    <input type="range" class="seek-slider" value="0" max="100">
+                                </div>
+                                <div class="equalizer">
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                </div>
+                            </div>
+                            <audio id="audio-linear-1" src="audio/linearvc_01.wav"></audio>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="audio-card">
+                        <div class="card-header">
+                            <span class="card-tag tag-target">Reconstruction</span>
+                            <p>ID: 02</p>
+                        </div>
+                        <div class="card-title-area">
+                            <h4>Target Reconstruction</h4>
+                            <p>Original target speaker rebuilt directly.</p>
+                        </div>
+                        <div class="player-interface">
+                            <div class="custom-player">
+                                <button class="play-btn" onclick="togglePlay('audio-linear-2')">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="time-slider-container">
+                                    <span class="time-display">0:00</span>
+                                    <input type="range" class="seek-slider" value="0" max="100">
+                                </div>
+                                <div class="equalizer">
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                </div>
+                            </div>
+                            <audio id="audio-linear-2" src="audio/linearvc_02.wav"></audio>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="audio-card">
+                        <div class="card-header">
+                            <span class="card-tag tag-source">Embedding Only</span>
+                            <p>ID: 03</p>
+                        </div>
+                        <div class="card-title-area">
+                            <h4>Embedding Only VC</h4>
+                            <p>Naively swapping the speaker embedding vector without transform.</p>
+                        </div>
+                        <div class="player-interface">
+                            <div class="custom-player">
+                                <button class="play-btn" onclick="togglePlay('audio-linear-3')">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="time-slider-container">
+                                    <span class="time-display">0:00</span>
+                                    <input type="range" class="seek-slider" value="0" max="100">
+                                </div>
+                                <div class="equalizer">
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                </div>
+                            </div>
+                            <audio id="audio-linear-3" src="audio/linearvc_03.wav"></audio>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ROW 2: Transforms -->
+            <div class="vc-row">
+                <div class="row-header">
+                    <h4>Mathematical Linear Transforms</h4>
+                    <span class="pill-badge">Linear Mapping</span>
+                </div>
+                <div class="card-row-grid">
+                    
+                    <!-- Card 4 -->
+                    <div class="audio-card">
+                        <div class="card-header">
+                            <span class="card-tag tag-converted">Mean-Std Shift</span>
+                            <p>ID: 07</p>
+                        </div>
+                        <div class="card-title-area">
+                            <h4>Pure Mean-Std Transform</h4>
+                            <p>Simplest scaling & translation of features.</p>
+                        </div>
+                        <div class="player-interface">
+                            <div class="custom-player">
+                                <button class="play-btn" onclick="togglePlay('audio-linear-7')">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="time-slider-container">
+                                    <span class="time-display">0:00</span>
+                                    <input type="range" class="seek-slider" value="0" max="100">
+                                </div>
+                                <div class="equalizer">
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                </div>
+                            </div>
+                            <audio id="audio-linear-7" src="audio/linearvc_07.wav"></audio>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="audio-card">
+                        <div class="card-header">
+                            <span class="card-tag tag-converted">Diagonal Affine</span>
+                            <p>ID: 08</p>
+                        </div>
+                        <div class="card-title-area">
+                            <h4>Pure Diagonal Affine</h4>
+                            <p>Scaling & shifting per feature dimension.</p>
+                        </div>
+                        <div class="player-interface">
+                            <div class="custom-player">
+                                <button class="play-btn" onclick="togglePlay('audio-linear-8')">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="time-slider-container">
+                                    <span class="time-display">0:00</span>
+                                    <input type="range" class="seek-slider" value="0" max="100">
+                                </div>
+                                <div class="equalizer">
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                </div>
+                            </div>
+                            <audio id="audio-linear-8" src="audio/linearvc_08.wav"></audio>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="audio-card">
+                        <div class="card-header">
+                            <span class="card-tag tag-converted">Full Affine</span>
+                            <p>ID: 09</p>
+                        </div>
+                        <div class="card-title-area">
+                            <h4>Pure Full Affine</h4>
+                            <p>Full matrix mapping (rotation, covariance transfer).</p>
+                        </div>
+                        <div class="player-interface">
+                            <div class="custom-player">
+                                <button class="play-btn" onclick="togglePlay('audio-linear-9')">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="time-slider-container">
+                                    <span class="time-display">0:00</span>
+                                    <input type="range" class="seek-slider" value="0" max="100">
+                                </div>
+                                <div class="equalizer">
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                </div>
+                            </div>
+                            <audio id="audio-linear-9" src="audio/linearvc_09.wav"></audio>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ROW 3: Hybrids & Oracle -->
+            <div class="vc-row">
+                <div class="row-header">
+                    <h4>Hybrids & Oracle Limits</h4>
+                    <span class="pill-badge">Upper Bound</span>
+                </div>
+                <div class="card-row-grid">
+                    
+                    <!-- Card 7 -->
+                    <div class="audio-card">
+                        <div class="card-header">
+                            <span class="card-tag tag-converted">Hybrid Diagonal</span>
+                            <p>ID: 14</p>
+                        </div>
+                        <div class="card-title-area">
+                            <h4>Hybrid Diagonal Affine</h4>
+                            <p>Diagonal transform mixed with target speaker embedding.</p>
+                        </div>
+                        <div class="player-interface">
+                            <div class="custom-player">
+                                <button class="play-btn" onclick="togglePlay('audio-linear-14')">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="time-slider-container">
+                                    <span class="time-display">0:00</span>
+                                    <input type="range" class="seek-slider" value="0" max="100">
+                                </div>
+                                <div class="equalizer">
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                </div>
+                            </div>
+                            <audio id="audio-linear-14" src="audio/linearvc_14.wav"></audio>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="audio-card">
+                        <div class="card-header">
+                            <span class="card-tag tag-converted">Hybrid Full</span>
+                            <p>ID: 15</p>
+                        </div>
+                        <div class="card-title-area">
+                            <h4>Hybrid Full Affine</h4>
+                            <p>Full matrix mapping mixed with target speaker embedding.</p>
+                        </div>
+                        <div class="player-interface">
+                            <div class="custom-player">
+                                <button class="play-btn" onclick="togglePlay('audio-linear-15')">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="time-slider-container">
+                                    <span class="time-display">0:00</span>
+                                    <input type="range" class="seek-slider" value="0" max="100">
+                                </div>
+                                <div class="equalizer">
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                </div>
+                            </div>
+                            <audio id="audio-linear-15" src="audio/linearvc_15.wav"></audio>
+                        </div>
+                    </div>
+
+                    <!-- Card 9 -->
+                    <div class="audio-card">
+                        <div class="card-header">
+                            <span class="card-tag tag-source">Oracle Reference</span>
+                            <p>ID: 04</p>
+                        </div>
+                        <div class="card-title-area">
+                            <h4>Oracle Target Articulation</h4>
+                            <p>Perfect target speaker articulation mixed with source timbre (Ideal ceiling).</p>
+                        </div>
+                        <div class="player-interface">
+                            <div class="custom-player">
+                                <button class="play-btn" onclick="togglePlay('audio-linear-4')">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="time-slider-container">
+                                    <span class="time-display">0:00</span>
+                                    <input type="range" class="seek-slider" value="0" max="100">
+                                </div>
+                                <div class="equalizer">
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                    <div class="eq-bar"></div>
+                                </div>
+                            </div>
+                            <audio id="audio-linear-4" src="audio/linearvc_04.wav"></audio>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TAB 2: NON-LINEAR VOICE CONVERSION & PIVOTING -->
+        <div id="seedvc" class="tab-content">
+            
+            <div class="theory-card" style="border-color: rgba(217, 70, 239, 0.15);">
+                <div class="theory-text">
+                    <h2>Timbre Pivoting Voice Conversion <span>(Seed-VC)</span></h2>
+                    <p>Seed-VC is a non-linear diffusion/flow-matching voice conversion model. Using the newly curated dry VTuber dataset, we perform zero-shot and few-shot voice conversion. By inputting a source singing track along with a target speech/singing reference, the model pivots the singer's timbre to match the target speaker.</p>
+                    <div class="theory-points">
+                        <div class="point-item">
+                            <div class="point-icon" style="background: rgba(217, 70, 239, 0.15); color: var(--accent);">1</div>
+                            <p><strong>Speech-to-Singing timbre pivoting:</strong> Allows using standard chatting/talking voice references to guide highly dynamic singing voice conversions.</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon" style="background: rgba(217, 70, 239, 0.15); color: var(--accent);">2</div>
+                            <p><strong>Cross-Lingual Adaptation:</strong> Translates vocal timbre from English speakers to Japanese targets perfectly while maintaining phonetic clarity.</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon" style="background: rgba(217, 70, 239, 0.15); color: var(--accent);">3</div>
+                            <p><strong>Zero-shot Inference:</strong> Leverages deep semantic bottlenecks (like content representations) to map voices in a speaker-agnostic feature space.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="math-block" style="border-left-color: var(--accent); color: #f472b6;">
+                        <div class="math-title" style="color: var(--accent);">Seed-VC Bottlenecks</div>
+                        Speech = Content + Pitch + Timbre<br><br>
+                        Content extractor = vits / whisper<br>
+                        Timbre reference = target speech<br><br>
+                        <div class="math-title" style="margin-top: 10px; color: var(--accent);">Pivot Logic</div>
+                        z_latent = Flow-Match(source_singing_content, target_speech_reference)
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-section-header">
+                <h3>Cross-Lingual Singing Timbre Pivot (Alto 1 ➡️ Japanese Tenor 1)</h3>
+                <p>Translating an English Alto singer's voice to a Japanese Tenor speaker reference. Demonstrating cross-lingual zero-shot timbre pivoting using different speaking vs. singing reference sources.</p>
+            </div>
+
+            <!-- ROW 4: Cross Lingual Pivot -->
+            <div class="vc-row">
+                <div class="row-header">
+                    <h4>English Alto 1 ➡️ Japanese Tenor 1</h4>
+                    <span class="pill-badge" style="background: rgba(217, 70, 239, 0.1); border-color: rgba(217, 70, 239, 0.2); color: #f472b6;">Cross-Lingual Timbre Pivot</span>
+                </div>
+                
+                <!-- References -->
+                <div style="margin-bottom: 30px;">
+                    <h5 style="font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); margin-bottom: 15px; border-left: 3px solid var(--primary); padding-left: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">1. Reference Timbres (Source & Target)</h5>
+                    <div class="card-row-grid">
+                        
+                        <!-- Card 1: Source Singing -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-source">Source</span>
+                                <p>Original</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Source Singing (Alto 1)</h4>
+                                <p>Original English Alto singing vocals (GTSinger).</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-cross-source-singing')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-cross-source-singing" src="audio/seedvc_cross_source_singing.wav"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Source Speech -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-source">Source</span>
+                                <p>Original</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Source Speech Reference</h4>
+                                <p>Original English Alto speaking voice reference.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-cross-source-speech')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-cross-source-speech" src="audio/seedvc_cross_source_speech.wav"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Target Speech -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-target">Reference</span>
+                                <p>Target</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Target Speech (Talking Timbre)</h4>
+                                <p>Japanese Tenor 1 chatting/talking voice reference.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-cross-target-speech')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-cross-target-speech" src="audio/seedvc_cross_target_speech.wav"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Target Singing -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-target">Reference</span>
+                                <p>Target</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Target Singing (Singing Timbre)</h4>
+                                <p>Japanese Tenor 1 singing voice reference.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-cross-target-singing')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-cross-target-singing" src="audio/seedvc_cross_target_singing.wav"></audio>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Converted Outputs -->
+                <div>
+                    <h5 style="font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); margin-bottom: 15px; border-left: 3px solid var(--accent); padding-left: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">2. Converted Outputs (Timbre Pivoting Comparison)</h5>
+                    <div class="card-row-grid">
+                        
+                        <!-- Card 5: Output A -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-converted" style="background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.2); color: #a5b4fc;">Self-Conversion</span>
+                                <p>Self-Conversion</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Pivoted to Source Speech</h4>
+                                <p>Alto 1 singing shifted to Alto 1's speaking voice style.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-cross-out-source-speech')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-cross-out-source-speech" src="audio/seedvc_cross_out_source_speech.wav"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Output B -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-converted">Converted Pivot</span>
+                                <p>Cross-Lingual</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Singing in Target's Talking Timbre</h4>
+                                <p>Alto 1 singing converted using Japanese Tenor's speaking reference.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-cross-out-target-speech')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-cross-out-target-speech" src="audio/seedvc_cross_out_target_speech.wav"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Card 7: Output C -->
+                        <div class="audio-card" style="box-shadow: 0 0 20px rgba(217, 70, 239, 0.15); border-color: rgba(217, 70, 239, 0.25);">
+                            <div class="card-header">
+                                <span class="card-tag tag-converted" style="background: rgba(217, 70, 239, 0.15); border-color: rgba(217, 70, 239, 0.25); color: #f472b6;">Premium Target Singing</span>
+                                <p>Cross-Lingual</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Singing in Target's Singing Timbre</h4>
+                                <p>Alto 1 singing converted using Japanese Tenor's singing reference.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-cross-out-target-singing')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-cross-out-target-singing" src="audio/seedvc_cross_out_target_singing.wav"></audio>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 5: Same Language Pivot -->
+            <div class="demo-section-header" style="margin-top: 50px;">
+                <h3>Same-Language Singing Timbre Pivot (Alto 1 ➡️ English Tenor 1)</h3>
+                <p>Timbre conversion within English speakers showing the difference between guiding the model with a talking/speech reference vs. a highly dynamic singing reference.</p>
+            </div>
+            
+            <div class="vc-row">
+                <div class="row-header">
+                    <h4>English Alto 1 ➡️ English Tenor 1</h4>
+                    <span class="pill-badge">Same-Language Timbre Pivot</span>
+                </div>
+                
+                <!-- References -->
+                <div style="margin-bottom: 30px;">
+                    <h5 style="font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); margin-bottom: 15px; border-left: 3px solid var(--primary); padding-left: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">1. Reference Timbres (Source & Target)</h5>
+                    <div class="card-row-grid">
+                        
+                        <!-- Card 1: Source Singing -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-source">Source</span>
+                                <p>Original</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Source Singing (Alto 1)</h4>
+                                <p>Original English Alto singing vocals (GTSinger).</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-same-source-singing')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-same-source-singing" src="audio/seedvc_same_source_singing.wav"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Source Speech -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-source">Source</span>
+                                <p>Original</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Source Speech Reference</h4>
+                                <p>Original English Alto speaking voice reference.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-same-source-speech')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-same-source-speech" src="audio/seedvc_same_source_speech.wav"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Target Speech -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-target">Reference</span>
+                                <p>Target</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Target Speech (Talking Timbre)</h4>
+                                <p>English Tenor 1 chatting/talking voice reference.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-same-target-speech')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-same-target-speech" src="audio/seedvc_same_target_speech.wav"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Target Singing -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-target">Reference</span>
+                                <p>Target</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Target Singing (Singing Timbre)</h4>
+                                <p>English Tenor 1 singing voice reference.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-same-target-singing')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-same-target-singing" src="audio/seedvc_same_target_singing.wav"></audio>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Converted Outputs -->
+                <div>
+                    <h5 style="font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); margin-bottom: 15px; border-left: 3px solid var(--accent); padding-left: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">2. Converted Outputs (Timbre Pivoting Comparison)</h5>
+                    <div class="card-row-grid">
+                        
+                        <!-- Card 5: Output A -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-converted" style="background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.2); color: #a5b4fc;">Self-Conversion</span>
+                                <p>Self-Conversion</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Pivoted to Source Speech</h4>
+                                <p>Alto 1 singing shifted to Alto 1's speaking voice style.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-same-out-source-speech')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-same-out-source-speech" src="audio/seedvc_same_out_source_speech.wav"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Output B -->
+                        <div class="audio-card">
+                            <div class="card-header">
+                                <span class="card-tag tag-converted">Converted Pivot</span>
+                                <p>Same-Language</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Singing in Target's Talking Timbre</h4>
+                                <p>Alto 1 singing converted using English Tenor's speaking reference.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-same-out-target-speech')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-same-out-target-speech" src="audio/seedvc_same_out_target_speech.wav"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Card 7: Output C -->
+                        <div class="audio-card" style="box-shadow: 0 0 20px rgba(20, 184, 166, 0.15); border-color: rgba(20, 184, 166, 0.25);">
+                            <div class="card-header">
+                                <span class="card-tag tag-converted" style="background: rgba(20, 184, 166, 0.15); border-color: rgba(20, 184, 166, 0.25); color: #2dd4bf;">Premium Target Singing</span>
+                                <p>Same-Language</p>
+                            </div>
+                            <div class="card-title-area">
+                                <h4>Singing in Target's Singing Timbre</h4>
+                                <p>Alto 1 singing converted using English Tenor's singing reference.</p>
+                            </div>
+                            <div class="player-interface">
+                                <div class="custom-player">
+                                    <button class="play-btn" onclick="togglePlay('audio-seed-same-out-target-singing')">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <div class="time-slider-container">
+                                        <span class="time-display">0:00</span>
+                                        <input type="range" class="seek-slider" value="0" max="100">
+                                    </div>
+                                    <div class="equalizer">
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                        <div class="eq-bar"></div>
+                                    </div>
+                                </div>
+                                <audio id="audio-seed-same-out-target-singing" src="audio/seedvc_same_out_target_singing.wav"></audio>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Voice Conversion Research Lab. Prepared for Advisor One-on-One Meeting. Designed dynamically by Antigravity.</p>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            
+            // Stop all playing audio when switching tabs
+            document.querySelectorAll('audio').forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+                const playBtn = audio.parentElement.querySelector('.play-btn');
+                if (playBtn) playBtn.classList.remove('playing');
+            });
+        }
+
+        function togglePlay(audioId) {
+            const audio = document.getElementById(audioId);
+            const playBtn = audio.parentElement.querySelector('.play-btn');
+            
+            // Stop other playing audios first
+            document.querySelectorAll('audio').forEach(otherAudio => {
+                if (otherAudio.id !== audioId && !otherAudio.paused) {
+                    otherAudio.pause();
+                    const otherBtn = otherAudio.parentElement.querySelector('.play-btn');
+                    if (otherBtn) otherBtn.classList.remove('playing');
+                }
+            });
+
+            if (audio.paused) {
+                audio.play();
+                playBtn.classList.add('playing');
+                playBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+            } else {
+                audio.pause();
+                playBtn.classList.remove('playing');
+                playBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+            }
+
+            // Sync seek bar
+            const seekSlider = audio.parentElement.querySelector('.seek-slider');
+            const timeDisplay = audio.parentElement.querySelector('.time-display');
+
+            audio.ontimeupdate = () => {
+                if (audio.duration) {
+                    const progress = (audio.currentTime / audio.duration) * 100;
+                    seekSlider.value = progress;
+                    
+                    // Format minutes:seconds
+                    const minutes = Math.floor(audio.currentTime / 60);
+                    const seconds = Math.floor(audio.currentTime % 60);
+                    timeDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                }
+            };
+
+            seekSlider.oninput = () => {
+                audio.currentTime = (seekSlider.value / 100) * audio.duration;
+            };
+            
+            audio.onended = () => {
+                playBtn.classList.remove('playing');
+                playBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+                seekSlider.value = 0;
+                timeDisplay.textContent = "0:00";
+            };
+        }
+    </script>
+</body>
+</html>"""
+
+    html_content = html_content.replace("__TITLE__", title)
+    html_content = html_content.replace("__SUBTITLE__", subtitle)
+    html_content = html_content.replace("__BADGE__", badge)
+    html_content = html_content.replace("__ZIP_NAME__", zip_name)
+
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(html_content)
+    print(f"Created index.html at {output_path}")
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="Build and package self-contained research demos.")
+    parser.add_argument("--name", type=str, default="voice_conversion", help="Folder name inside docs/demos/")
+    parser.add_argument("--title", type=str, default="Voice Conversion Research Dashboard", help="HTML page title")
+    parser.add_argument("--subtitle", type=str, default="Research and Development Comparative Demo Interface", help="Logo area subtitle")
+    parser.add_argument("--badge", type=str, default="Research Demo: Voice Conversion", help="Badge text beside logo")
+    args = parser.parse_args()
+
+    demo_dir = os.path.join("docs", "demos", args.name)
+    audio_dir = os.path.join(demo_dir, "audio")
+    os.makedirs(audio_dir, exist_ok=True)
+    
+    files_map = {
+        "outputs/linearvc_floor/scaling_20train_1test/audio/01_source_reconstruction.wav": "linearvc_01.wav",
+        "outputs/linearvc_floor/scaling_20train_1test/audio/02_target_reconstruction.wav": "linearvc_02.wav",
+        "outputs/linearvc_floor/scaling_20train_1test/audio/03_embedding_only_vc.wav": "linearvc_03.wav",
+        "outputs/linearvc_floor/scaling_20train_1test/audio/04_oracle_target_arti_plus_source_spk.wav": "linearvc_04.wav",
+        "outputs/linearvc_floor/scaling_20train_1test/audio/07_pure_meanstd_transform_plus_source_spk.wav": "linearvc_07.wav",
+        "outputs/linearvc_floor/scaling_20train_1test/audio/08_pure_diag_affine_transform_plus_source_spk.wav": "linearvc_08.wav",
+        "outputs/linearvc_floor/scaling_20train_1test/audio/09_pure_full_affine_transform_plus_source_spk.wav": "linearvc_09.wav",
+        "outputs/linearvc_floor/scaling_20train_1test/audio/14_hybrid_diag_affine_transform_plus_target_spk.wav": "linearvc_14.wav",
+        "outputs/linearvc_floor/scaling_20train_1test/audio/15_hybrid_full_affine_transform_plus_target_spk.wav": "linearvc_15.wav",
+        
+        # Seed-VC Cross-Lingual (English Alto 1 -> Japanese Tenor 1)
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_ja_tenor1_30steps/audio/01_source_singing.wav": "seedvc_cross_source_singing.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_ja_tenor1_30steps/audio/04_source_speech_reference.wav": "seedvc_cross_source_speech.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_ja_tenor1_30steps/audio/02_target_speech_reference.wav": "seedvc_cross_target_speech.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_ja_tenor1_30steps/audio/03_target_singing_reference.wav": "seedvc_cross_target_singing.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_ja_tenor1_30steps/audio/converted_source_speech_ref.wav": "seedvc_cross_out_source_speech.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_ja_tenor1_30steps/audio/converted_target_speech_ref.wav": "seedvc_cross_out_target_speech.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_ja_tenor1_30steps/audio/converted_target_singing_ref.wav": "seedvc_cross_out_target_singing.wav",
+        
+        # Seed-VC Same-Language (English Alto 1 -> English Tenor 1)
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_en_tenor1_30steps/audio/01_source_singing.wav": "seedvc_same_source_singing.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_en_tenor1_30steps/audio/04_source_speech_reference.wav": "seedvc_same_source_speech.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_en_tenor1_30steps/audio/02_target_speech_reference.wav": "seedvc_same_target_speech.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_en_tenor1_30steps/audio/03_target_singing_reference.wav": "seedvc_same_target_singing.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_en_tenor1_30steps/audio/converted_source_speech_ref.wav": "seedvc_same_out_source_speech.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_en_tenor1_30steps/audio/converted_target_speech_ref.wav": "seedvc_same_out_target_speech.wav",
+        "outputs/seedvc_pivot/gtsinger_en_alto1_to_en_tenor1_30steps/audio/converted_target_singing_ref.wav": "seedvc_same_out_target_singing.wav",
+    }
+    
+    print(f"Building demo '{args.name}' under {demo_dir}...")
+    print("Copying audio files to local demo folder...")
+    for src, dst in files_map.items():
+        if os.path.exists(src):
+            shutil.copy(src, os.path.join(audio_dir, dst))
+            print(f"Copied {src} -> {dst}")
+        else:
+            print(f"Warning: source file {src} not found!")
+
+    # Create HTML page inside the demo folder
+    zip_name = f"{args.name}.zip"
+    create_html(os.path.join(demo_dir, "index.html"), args.title, args.subtitle, args.badge, zip_name)
+    
+    # Compress into a self-contained ZIP archive
+    zip_path = os.path.join(demo_dir, zip_name)
+    print(f"Compressing demo folder to {zip_path}...")
+    
+    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for root, dirs, files in os.walk(demo_dir):
+            for file in files:
+                if file.endswith('.zip'):
+                    continue
+                file_path = os.path.join(root, file)
+                # Keep directory structure relative to demo_dir so extracting it is clean
+                archive_name = os.path.relpath(file_path, demo_dir)
+                zipf.write(file_path, arcname=archive_name)
+                
+    print(f"Successfully created a self-contained ZIP archive at: {zip_path}")
+    print(f"Size of ZIP: {os.path.getsize(zip_path) / (1024*1024):.2f} MB")
+
+    # Clean up legacy scattered files to keep outputs pristine (DO NOT delete other docs/demos folders)
+    legacy_files = [
+        "outputs/meeting_demo.zip",
+        "outputs/meeting_demo.html"
+    ]
+    for lf in legacy_files:
+        if os.path.exists(lf):
+            try:
+                os.remove(lf)
+                print(f"Cleaned up legacy file: {lf}")
+            except Exception as e:
+                print(f"Warning: could not remove legacy file {lf}: {e}")
+                
+    legacy_dirs = [
+        "outputs/meeting_demo"
+    ]
+    for ld in legacy_dirs:
+        if os.path.exists(ld):
+            try:
+                shutil.rmtree(ld)
+                print(f"Cleaned up legacy directory: {ld}")
+            except Exception as e:
+                print(f"Warning: could not remove legacy directory {ld}: {e}")
+
+if __name__ == "__main__":
+    main()

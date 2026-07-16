@@ -1,0 +1,112 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.6"
+  },
+  "cells": [
+    {
+      "id": "SFPL",
+      "code_hash": "820bed9dab17b891ac1d58fe6d299074",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"what-to-report-back\">What To Report Back</h3>\n<span class=\"paragraph\">Please report one of:</span>\n<ul>\n<li><code>semantic works</code>: mapped is audibly between baseline and oracle in the desired way.</li>\n<li><code>semantic weak</code>: mapped is valid audio but barely changes the result.</li>\n<li><code>semantic harmful</code>: mapped causes artifacts, identity loss, or worse conversion.</li>\n</ul>\n<span class=\"paragraph\">Useful notes: pair numbers where mapped improves, pair numbers where mapped fails, and whether the difference sounds like identity, singing mode, loudness, breathiness, or F0/prosody.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "4e822ddda9c9d25ccc6c796e1c5fb779",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "ff3d302e91aa85f33b9c435d8c982fe0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "a2ec9637927b7f2155f34898b33eca1a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"track-1-seed-vc-semantic-residual-intervention-review\">Track 1 Seed-VC Semantic Residual Intervention Review</h1>\n<span class=\"paragraph\">Run root:</span>\n<span class=\"paragraph\"><code>/localdisk/bowen/singing_identity/runs/track1_seedvc_semantic_intervention_4pairs</code></span>\n<span class=\"paragraph\">This is the first causal audio check after the native latent audit. Each pair has:</span>\n<ul>\n<li><code>baseline_speech_prompt</code>: source singing converted with target speech prompt.</li>\n<li><code>mapped_semantic_stats</code>: same target speech prompt, but its Seed-VC semantic prompt sequence is affine-shifted toward predicted singing semantic mean/std.</li>\n<li><code>oracle_singing_prompt</code>: source singing converted with the actual target singing prompt.</li>\n</ul>\n<span class=\"paragraph\">Audio sanity: <code>12</code> wavs, <code>4</code> pairs, mean duration <code>7.54</code> sec, mean RMS <code>-18.61</code> dB.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "621efd0ffd9666c50639bc2e51914186",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='431db4c6-5cca-5c06-efb5-71177cbbe2eb'><marimo-slider data-initial-value='1' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Pair&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1' data-stop='4' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "2ad6ce58191bca6c4e9f31d15bfcc17d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"pair-1-zh-alto-1-target-from-zh-tenor-1-source\">Pair 1: <code>ZH-Alto-1</code> target from <code>ZH-Tenor-1</code> source</h2>\n<span class=\"paragraph\">Pair id: <code>Chinese__ZH-Alto-1__Breathy__\u4e0d\u518d\u89c1__Paired_Speech_Group__0000__Chinese__ZH-Alto-1__Breathy__\u4e0d\u518d\u89c1__Breathy_Group__0000</code></span>\n<span class=\"paragraph\">Listen for whether <code>mapped_semantic_stats</code> moves from baseline toward oracle in singing identity/domain, without simply becoming noisier or losing source melody/content.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "586e303f270f362f29f67736e13c1197",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"references\">References</h3></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Source singing</span></span><audio src='./@file/931724-185182-hgxiygYa.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Target speech reference</span></span><audio src='./@file/473804-185182-Svo1X0cs.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Target singing reference</span></span><audio src='./@file/1127564-185182-cSH8OoJs.wav' controls></audio></div></div></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "5892ddf791c25093c8725c4e3c151a11",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"generated-outputs\">Generated Outputs</h3></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Baseline speech prompt</strong></span>\n<ul>\n<li>duration: <code>6.47</code> sec</li>\n<li>RMS dB: <code>-25.12</code></li>\n<li>peak: <code>0.375</code></li>\n</ul></span><audio src='./@file/570446-185182-yCaj5DO0.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Mapped semantic stats</strong></span>\n<ul>\n<li>duration: <code>6.47</code> sec</li>\n<li>RMS dB: <code>-23.94</code></li>\n<li>peak: <code>0.404</code></li>\n</ul></span><audio src='./@file/570446-185182-n9L0vq2O.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Oracle singing prompt</strong></span>\n<ul>\n<li>duration: <code>6.47</code> sec</li>\n<li>RMS dB: <code>-22.12</code></li>\n<li>peak: <code>0.348</code></li>\n</ul></span><audio src='./@file/570446-185182-RwT68dSq.wav' controls></audio></div></div></div>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

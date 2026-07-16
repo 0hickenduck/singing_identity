@@ -1,0 +1,75 @@
+{
+  "metadata_rows_selected": {
+    "Chinese": 400,
+    "English": 600,
+    "French": 400,
+    "German": 400,
+    "Italian": 600,
+    "Japanese": 400,
+    "Korean": 600,
+    "Russian": 200,
+    "Spanish": 400
+  },
+  "pairs": {
+    "hash": "9a8ce660411f6bf56e02b7ceaa20c6b3adc3365b78caffc9172ad2087356be70",
+    "num_pairs": 39,
+    "techniques": {
+      "breathy": 27,
+      "control": 8,
+      "falsetto": 2,
+      "glissando": 2
+    }
+  },
+  "phone_examples": {
+    "hash": "ff3b2fd269e1c821ace9cdee27046a72b87df9c1277b39990f7185278f3e6097",
+    "num_examples": 1596,
+    "phones": 268,
+    "techniques": {
+      "breathy": 1064,
+      "control": 337,
+      "falsetto": 99,
+      "glissando": 96
+    }
+  },
+  "root": "/home/bowen/bowen_lab/projects/arti6_linearvc/data/gtsinger_domain_eval",
+  "skipped": {
+    "missing_wav": 3961
+  },
+  "technique_pairs": {
+    "hash": "aafaf54b5320f6c10ffca7ee695028077e2d32c8b5f78ba4f22c861573c0fc61",
+    "num_pairs": 234,
+    "target_techniques": {
+      "breathy": 133,
+      "falsetto": 76,
+      "glissando": 25
+    }
+  },
+  "utterances": {
+    "languages": {
+      "Chinese": 4,
+      "English": 12,
+      "French": 12,
+      "German": 8,
+      "Italian": 20,
+      "Japanese": 2,
+      "Korean": 10,
+      "Russian": 4,
+      "Spanish": 6
+    },
+    "manifest_hash": "42afa16d5506be764d96f23e5c0b48c56c2bfea58e1eba8ab350ccf433ba05b4",
+    "modes": {
+      "singing_control": 8,
+      "singing_technique": 31,
+      "speech": 39
+    },
+    "num_speakers": 18,
+    "num_utterances": 78,
+    "techniques": {
+      "breathy": 27,
+      "control": 8,
+      "falsetto": 2,
+      "glissando": 2,
+      "none": 39
+    }
+  }
+}

@@ -1,0 +1,328 @@
+% Compile twice for stable metadata and links:
+%   xelatex meeting_1on1_speech_singing_skill_2026-07-13.tex
+%   xelatex meeting_1on1_speech_singing_skill_2026-07-13.tex
+\documentclass[aspectratio=169,10pt]{ctexbeamer}
+
+\usetheme{default}
+\usefonttheme{professionalfonts}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+
+\definecolor{Ink}{HTML}{172033}
+\definecolor{Navy}{HTML}{274C77}
+\definecolor{Blue}{HTML}{3A86C8}
+\definecolor{Teal}{HTML}{2A9D8F}
+\definecolor{Gold}{HTML}{E9A23B}
+\definecolor{Rose}{HTML}{C65A6D}
+\definecolor{Mist}{HTML}{F3F6FA}
+\definecolor{Muted}{HTML}{667085}
+
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{frametitle}{fg=Navy,bg=white}
+\setbeamercolor{structure}{fg=Blue}
+\setbeamercolor{alerted text}{fg=Rose}
+\setbeamercolor{block title}{fg=white,bg=Navy}
+\setbeamercolor{block body}{fg=Ink,bg=Mist}
+\setbeamercolor{footline}{fg=Muted,bg=white}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\color{Teal}$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{Blue}$\bullet$}
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{%
+  \begin{beamercolorbox}[wd=.82\paperwidth,ht=2.8ex,dp=1.2ex,leftskip=0.5cm]{footline}%
+    \scriptsize 1-on-1 discussion --- speech/singing geometry and learner skill
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.18\paperwidth,ht=2.8ex,dp=1.2ex,rightskip=0.5cm plus1fil]{footline}%
+    \scriptsize \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}%
+}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=Blue,
+  linkcolor=Navy,
+  pdfauthor={Bowen},
+  pdftitle={Speech-Singing Geometry and Singing Learner Skill Modeling}
+}
+
+\newcommand{\dataset}[2]{\href{#2}{\textcolor{Blue}{\textbf{#1}}}}
+\newcommand{\good}{\textcolor{Teal}{\textbf{Established}}}
+\newcommand{\limit}{\textcolor{Rose}{\textbf{Missing}}}
+\newcommand{\smallnote}[1]{\textcolor{Muted}{\scriptsize #1}}
+
+\title{From Speech--Singing Geometry\\to Singing Learner Skill Modeling}
+\subtitle{1-on-1 discussion: current paper closure and next research direction}
+\author{Bowen}
+\date{2026-07-13}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \vspace{0.6cm}
+  {\usebeamerfont{title}\color{Navy}\LARGE\inserttitle\par}
+  \vspace{0.35cm}
+  {\large\color{Muted}\insertsubtitle\par}
+  \vfill
+  \begin{block}{Meeting goal}
+  \large
+  \textbf{Current paper:} narrow but defensible representation finding.\\[0.15cm]
+  \textbf{Next direction:} move from residual-mapper tuning to technique, learner stage, and longitudinal outcome prediction.
+  \end{block}
+  \vfill
+  {\color{Muted}\insertauthor\hfill\insertdate}
+\end{frame}
+
+\begin{frame}{1. Our question: how much of the change is shared?}
+\begin{columns}[T,onlytextwidth]
+\column{0.52\textwidth}
+\begin{block}{Individual residual}
+\centering
+\large
+$\text{speech}_i\quad\xrightarrow{\ \Delta_i\ }\quad\text{singing}_i$
+
+\vspace{0.25cm}
+\small
+Every person has a speech-to-singing residual $\Delta_i$.
+\end{block}
+
+\begin{block}{Global residual}
+\centering
+\large
+$\mu_{\mathrm{global}}=\operatorname{mean}_{\text{training people}}(\Delta_i)$
+
+\vspace{0.2cm}
+\small
+One average direction is learned from training people only.
+\end{block}
+
+\column{0.44\textwidth}
+\begin{block}{Main research question}
+\large
+How much of an individual person's speech-to-singing change is \textbf{shared across people} and captured by this global residual?
+\end{block}
+
+\small
+We test this on new people in two ways:
+\begin{enumerate}
+  \item Is their individual residual close to the global direction?
+  \item Does adding the global residual make the same singer easier to retrieve and verify?
+\end{enumerate}
+\end{columns}
+\end{frame}
+
+\begin{frame}{2. What we currently observe on unseen JVS speakers}
+\small
+\begin{tabularx}{\textwidth}{l >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
+\textbf{Model} & \shortstack{\textbf{Individual--global}\\\textbf{direction cosine}} & \shortstack{\textbf{Same-person R@1}\\\textbf{before $\to$ after}} & \shortstack{\textbf{EER}\\\textbf{before $\to$ after}} \\
+\midrule
+WavLM L12 & 0.917 & 13.5\% $\to$ 36.3\% & 42.1\% $\to$ 26.6\% \\
+HuBERT L6 & 0.891 & 19.5\% $\to$ 60.5\% & 37.1\% $\to$ 18.6\% \\
+MERT L3   & 0.806 & 36.5\% $\to$ 66.0\% & 28.5\% $\to$ 16.1\% \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.4cm}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\begin{block}{Simple reading}
+\small
+The individual residuals point in a similar direction to the global residual. After adding it, same-person speech--singing matching improves substantially.
+\end{block}
+
+\column{0.48\textwidth}
+\begin{block}{How to read the numbers}
+\small
+Cosine close to 1 means similar \textbf{direction}; 0.917 is not 91.7\% of the information. Higher R@1 is better; lower EER is better.
+\end{block}
+\end{columns}
+
+\smallnote{JVS: 100 people; repeated 60 train / 20 dev / 20 test speaker-disjoint splits. The global residual is never estimated from test people.}
+\end{frame}
+
+\begin{frame}{3. What we can say now, and what we still need}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\begin{block}{Supported now}
+\small
+\begin{itemize}
+  \item A strong global direction repeats across unseen people.
+  \item This direction improves held-out same-person retrieval and verification.
+  \item Wrong-sign and random directions do not give the same improvement.
+\end{itemize}
+\end{block}
+
+\begin{block}{Linear mode result}
+\small
+Speech versus singing \textbf{linear classification} AUC drops from about 1.0 to 0.47--0.54 after correction.
+
+This means the dominant \textbf{linear mode separability} is removed. It does not mean that every kind of mode information disappears.
+\end{block}
+
+\column{0.48\textwidth}
+\begin{block}{The main missing experiment}
+\small
+Cosine measures direction, but not length. We will compute on unseen people:
+\[
+\text{how much residual error remains after using }\mu_{\mathrm{global}}.
+\]
+Only then can we say that the global residual explains a particular \textbf{percentage} of an unseen person's change.
+\end{block}
+
+\begin{block}{One additional robustness check}
+\small
+Show the same direction, residual error, and identity improvement across model layers, rather than only the three selected layers.
+\end{block}
+\end{columns}
+
+\vspace{0.15cm}
+\centering
+\color{Navy}
+\textbf{Current safest claim:} the global residual captures a strong shared direction that improves identity correspondence; its held-out percentage contribution is the next measurement.
+\end{frame}
+
+% Part II: dataset and learner-skill slides. Refine after Part I is approved.
+\begin{frame}{4. Technique and vocal-quality datasets (not skill stages)}
+\footnotesize
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.16\textwidth} p{0.22\textwidth} X X}
+\toprule
+\textbf{Dataset} & \textbf{Scale / labels} & \textbf{Main use} & \textbf{Why it is not learner skill} \\
+\midrule
+\dataset{GTSinger}{https://proceedings.neurips.cc/paper_files/paper/2024/file/023d2c1a17cf35b11a0cbb43a0677c91-Paper-Datasets_and_Benchmarks_Track.pdf}
+& 20 professionals; 80.59 h singing + 16.16 h speech; 6 phoneme-level techniques; 9 languages
+& Technique recognition/control; speech-to-singing; representation audit
+& Professional performers; technique $\neq$ stage; singer--language confound \\
+\addlinespace
+\dataset{VocalSet}{https://archives.ismir.net/ismir2018/paper/000114.pdf}
+& 20 professionals; 10.1 h; 17 techniques; vowels, scales, arpeggios, excerpts
+& Leave-singer-out technique recognition; temporal vs. centroid modeling
+& Controlled vocalises; overlapping techniques; no teaching trajectory \\
+\addlinespace
+\dataset{SVQTD}{https://pmc.ncbi.nlm.nih.gov/articles/PMC9011380/}
+& $\sim$4,000 segments / 10.7 h; 7 pedagogy attributes: resonance, throat, roughness, vibrato, placement
+& Multi-dimensional perceptual attribute recognition
+& Static YouTube tenor segments; no learner, teacher demo, or future outcome \\
+\addlinespace
+\dataset{CVT Vocal Modes}{https://arxiv.org/abs/2601.18339}
+& 4 singers; 3,752 sustained-vowel samples; Neutral/Curbing/Overdrive/Edge; 3 annotators
+& Pedagogy-oriented vocal-mode classification; rater disagreement
+& Very small and controlled; school-specific taxonomy; no progression \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.2cm}
+\textbf{Use these for:} a short-term technique representation audit. \quad
+\textbf{Do not use them to claim:} beginner/intermediate/advanced learning stages.
+\end{frame}
+
+\begin{frame}{5. What actually comes closest to skill / learner data?}
+\footnotesize
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.15\textwidth} p{0.25\textwidth} X X}
+\toprule
+\textbf{Dataset / study} & \textbf{What is observed} & \textbf{What it supports} & \textbf{What is still missing} \\
+\midrule
+\dataset{M3}{https://zenodo.org/records/8332078}
+& Two teachers + disjoint beginner learners; sequential lessons; time-stamped pitch, amplitude, pronunciation, timing errors
+& Teacher-reference mistake detection; local feedback; teacher-specific tolerance
+& Only beginners; Indian art music; not broader stage or future outcome prediction \\
+\addlinespace
+\dataset{SAA}{https://pmc.ncbi.nlm.nih.gov/articles/PMC11289018/}
+& Online studies $N=247$ and $N=910$; pitch accuracy/stability and melodic memory; item-response modeling
+& Treat skill as latent ability conditioned on task difficulty, not a naive hard label
+& No lessons, teacher feedback, technique rubric, or longitudinal trajectory \\
+\addlinespace
+\dataset{DAMP--VPB}{https://zenodo.org/records/2616690}
+& 24,874 amateur solo performances; 5,429 singers; 14 songs
+& Large-scale real-user singing representations and song-controlled evaluation
+& Restricted access; no pedagogy labels, teacher ratings, or clean practice trajectory \\
+\addlinespace
+\dataset{Longitudinal student study}{https://doi.org/10.1016/j.jvoice.2020.12.026}
+& Repeated voice-health/perceptual measures in university singing students
+& Shows longitudinal design and acoustic change are feasible
+& Not a public ML corpus; labels are voice health, not multi-dimensional singing skill \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.25cm}
+\begin{block}{Landscape conclusion}
+Existing data supports technique recognition, current ability scoring, and beginner mistake detection; it does \textbf{not} support multi-stage prediction of the same learner's future singing development.
+\end{block}
+\end{frame}
+
+\begin{frame}{6. Proposed research question: model a trajectory, not a class label}
+\begin{columns}[T,onlytextwidth]
+\column{0.55\textwidth}
+\begin{block}{Target}
+\centering
+\large
+$\mathbf y_{i,t}=[\text{pitch, rhythm, breath, phonation, register, diction, expression}]$
+\end{block}
+
+\begin{block}{Prediction question}
+\centering
+\large
+early recordings + mistakes + feedback + practice\\
+$\Downarrow$\\
+future multi-dimensional skill
+\end{block}
+
+\column{0.42\textwidth}
+\small
+\textbf{Data ingredients}
+\begin{itemize}
+  \item Same learner, repeated weeks and fixed tasks
+  \item Teacher demonstrations and localized mistakes
+  \item 2--3 individual raters; preserve disagreement
+  \item Speech, vowels, scales, and fixed song excerpts
+\end{itemize}
+
+\textbf{Mandatory baselines}
+\begin{itemize}
+  \item Persistence and linear trend
+  \item Current score + practice time
+  \item Handcrafted acoustics vs. frozen SSL
+\end{itemize}
+\end{columns}
+
+\vspace{0.2cm}
+\alert{Key modeling choice:} use a multi-dimensional latent / ordinal skill model; do not reduce the project to beginner--intermediate--advanced classification.
+\end{frame}
+
+\begin{frame}{7. Recommended plan and decisions for this meeting}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\begin{block}{Recommended plan}
+\small
+\begin{enumerate}
+  \item \textbf{Current paper:} stop mapper expansion; write the narrow geometry paper.
+  \item \textbf{Short-term POC:} technique/mistake representation audit on GTSinger, VocalSet, and M3.
+  \item \textbf{Long-term thesis direction:} longitudinal learner corpus and future-outcome prediction.
+\end{enumerate}
+\end{block}
+
+\small
+Optional paper robustness only if needed: centering/whitening and a simple LDA/PLDA or Mahalanobis comparison to rule out a cosine-origin explanation.
+
+\column{0.49\textwidth}
+\textbf{Questions for the advisor}
+\small
+\begin{enumerate}
+  \item Is the current paper ready to write, or is metric robustness required first?
+  \item Should ``skill'' be a hard stage or a multi-dimensional latent trajectory?
+  \item Can we access learners, 2--3 vocal teachers, and an IRB/data-collection path?
+  \item Which pedagogy/style should define the pilot: classical, pop, choir, or Indian/Chinese traditions?
+  \item Start with an existing-data POC, or prioritize data collection?
+\end{enumerate}
+\end{columns}
+
+\vfill
+\centering
+\large\color{Navy}
+\textbf{Proposed one-line decision:} close the current paper as a controlled representation result; move the next project toward learner-centered longitudinal modeling.
+\end{frame}
+
+\end{document}

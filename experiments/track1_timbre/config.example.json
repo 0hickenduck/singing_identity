@@ -1,0 +1,13 @@
+{
+  "manifest": "/localdisk/bowen/singing_identity/runs/stage1_repaired_200_fresh_local/manifests/gtsinger_utterances.jsonl",
+  "pairs": "/localdisk/bowen/singing_identity/runs/stage1_repaired_200_fresh_local/manifests/gtsinger_pairs.jsonl",
+  "feature_root": "/localdisk/bowen/singing_identity/features/stage1_repaired_200_fresh_local",
+  "extractor": "wavlm_base_plus",
+  "checkpoint_hash": "microsoft_wavlm_base_plus",
+  "layers": ["6", "9"],
+  "primary_controls": ["f0_mean_hz", "f0_std_hz", "f0_voiced_pct", "energy_mean", "energy_std", "duration_sec", "rms_db"],
+  "go_no_go": {
+    "mode_auc_after_controls_min": 0.75,
+    "cross_mode_recall_at_1_min": 0.10
+  }
+}

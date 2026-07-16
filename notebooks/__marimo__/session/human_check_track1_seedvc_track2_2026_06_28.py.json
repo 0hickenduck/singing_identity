@@ -1,0 +1,125 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.6"
+  },
+  "cells": [
+    {
+      "id": "vblA",
+      "code_hash": "2d543f788802d785c10b018bfa8a9463",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"track-1-seedvc-breathy\">\u9700\u8981\u4eba\u5de5\u68c0\u67e5\uff1aTrack 1 / SeedVC / Breathy</h1>\n<span class=\"paragraph\">\u8fd9\u4e2a notebook \u662f\u672c\u8f6e human checkpoint \u7684\u5165\u53e3\u3002\u97f3\u9891\u9010 pair \u68c0\u67e5\u8bf7\u6253\u5f00\u4e0b\u9762\u4e24\u4e2a\u4e13\u95e8 notebook\uff1a</span>\n<ul>\n<li><code>notebooks/track1_seedvc_prompt_review.py</code></li>\n<li><code>notebooks/track1_seedvc_component_ablation_review.py</code></li>\n</ul>\n<span class=\"paragraph\">\u5f53\u524d\u81ea\u52a8\u5b9e\u9a8c\u5df2\u7ecf\u80fd\u5224\u65ad\uff1aTrack 1 v2 \u4e0d\u662f\u8d1f\u7ed3\u679c\uff1bbreathy \u4e0d\u662f dead end\uff1bSeedVC prompt-mode proxy \u6709\u7a33\u5b9a\u5dee\u5f02\u3002</span>\n<span class=\"paragraph\">\u73b0\u5728\u4e0d\u80fd\u81ea\u52a8\u5224\u65ad\u7684\u662f\uff1a\u8fd9\u4e2a SeedVC proxy \u5dee\u5f02\u5728\u4eba\u8033\u4e0a\u5230\u5e95\u662f target identity\uff0c\u8fd8\u662f singing-domain / breathy-phonation / loudness-quality\u3002</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "262c1a77aeebc2cc7fe14c8f4942a3a7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"track-1-breathy\">Track 1 / Breathy \u5f53\u524d\u7ed3\u8bba</h2>\n<span class=\"paragraph\">Track 1\uff1a</span>\n<ul>\n<li>\u65e7\u7248 M5 \u5f31\u4e8e M0 \u4e3b\u8981\u662f\u9ad8\u7ef4\u5c0f\u6837\u672c\u4e0b\u7684 overfitting / model misspecification\u3002</li>\n<li>v2 \u4f4e\u7ef4\u8f93\u5165 + \u4f4e\u79e9 target \u540e\uff0c\u6240\u6709\u4e3b\u8868\u793a\u90fd\u8d85\u8fc7 M0 mean-delta baseline\u3002</li>\n<li>\u53ef\u9884\u6d4b\u90e8\u5206\u4e3b\u8981\u662f F0/prosody/duration/energy/acoustic proxy\uff1bdiscrete technique label \u4e0d\u662f\u4e3b\u5bfc\u3002</li>\n</ul>\n<span class=\"paragraph\">Breathy\uff1a</span>\n<ul>\n<li>\u5355\u4e2a global breathy vector \u4e0d\u6210\u7acb\u3002</li>\n<li>\u4f46 breathy \u5728 SSL representation \u4e2d\u53ef\u68c0\u6d4b\uff1bresidualize duration/F0/energy \u540e\u4ecd\u53ef\u68c0\u6d4b\u3002</li>\n<li>\u66f4\u51c6\u786e\u7684\u8bf4\u6cd5\u662f\uff1a<code>breathy is encoded, but not as one clean global direction</code>\u3002</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "58665916f0f13de36b3639a0fab8c286",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"verdict\">\u9700\u8981\u4f60\u56de\u7684 verdict</h2>\n<div class=\"language-text codehilite\"><pre><span></span><code>Prompt mode 30-pair:\n\n- singing prompt \u662f\u5426\u7ecf\u5e38\u66f4\u50cf target identity: yes / no / mixed\n\n- \u5982\u679c mixed\uff0c\u54ea\u4e9b pair speech prompt wins:\n\n- \u4e3b\u8981\u53d8\u5316\u66f4\u50cf identity / breathy-phonation / singing-domain / loudness-quality:\n\n- artifact-heavy pair numbers:\n\nComponent ablation 12-pair:\n\n- mel_style \u662f\u5426\u63a5\u8fd1 oracle_all_singing: yes / no / mixed\n\n- \u5355\u5206\u91cf\u6700\u660e\u663e: mel / style / prompt_seq / none\n\n- style \u7684\u6548\u679c\u66f4\u50cf identity / timbre / technique-phonation / loudness-quality:\n\n- prompt_seq_only \u662f\u5426\u57fa\u672c\u65e0\u6548: yes / no / mixed\n</code></pre></div>\n<span class=\"paragraph\">\u8fd9\u4e2a verdict \u51b3\u5b9a\u4e0b\u4e00\u6b65\uff1a</span>\n<ul>\n<li>\u5982\u679c\u662f identity\uff1a\u7ee7\u7eed SeedVC \u5185\u90e8 mel/style \u6216 CAMPPlus style mapping\u3002</li>\n<li>\u5982\u679c\u662f domain/phonation\uff1aTrack 1 \u4f5c\u4e3a prompt mismatch accounting \u4fdd\u7559\uff0cSeedVC link \u6539\u5199\u6210 domain/phonation mechanism\u3002</li>\n<li>\u5982\u679c artifact/loudness \u4e3b\u5bfc\uff1arerun \u9ad8 diffusion steps / \u66f4\u4e25 loudness QA / \u66f4\u5747\u8861 pairs\u3002</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "5134134f1f202b6b753170f98ee5aba3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "572d410797eae33efe719c504ba89ced",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "754011a30785f7615f5dc8469da90eff",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"ssh-marimo\">SSH / Marimo \u6253\u5f00\u65b9\u5f0f</h2>\n<span class=\"paragraph\">\u5f53\u524d\u673a\u5668\u662f lab GPU node\u3002\u63a8\u8350\u4ece\u672c\u5730\u5f00 SSH tunnel\uff1a</span>\n<div class=\"language-bash codehilite\"><pre><span></span><code>ssh<span class=\"w\"> </span>-L<span class=\"w\"> </span><span class=\"m\">2719</span>:127.0.0.1:2719<span class=\"w\"> </span>bowen@valkyrie03.gavo.t.u-tokyo.ac.jp\n</code></pre></div>\n<span class=\"paragraph\">\u5728 lab server \u4e0a\u542f\u52a8\u603b\u5165\u53e3\uff1a</span>\n<div class=\"language-bash codehilite\"><pre><span></span><code><span class=\"nb\">cd</span><span class=\"w\"> </span>/home/bowen/bowen_lab/projects/singing_identity\nuv<span class=\"w\"> </span>run<span class=\"w\"> </span>--with<span class=\"w\"> </span>marimo<span class=\"w\"> </span>marimo<span class=\"w\"> </span>edit<span class=\"w\"> </span>notebooks/human_check_track1_seedvc_track2_2026_06_28.py<span class=\"w\"> </span>--host<span class=\"w\"> </span><span class=\"m\">127</span>.0.0.1<span class=\"w\"> </span>--port<span class=\"w\"> </span><span class=\"m\">2719</span><span class=\"w\"> </span>--headless\n</code></pre></div>\n<span class=\"paragraph\">\u7136\u540e\u672c\u5730\u6d4f\u89c8\u5668\u6253\u5f00\uff1a</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>http://127.0.0.1:2719\n</code></pre></div>\n<span class=\"paragraph\">\u4e5f\u53ef\u4ee5\u76f4\u63a5\u6253\u5f00\u4e13\u95e8\u542c\u8bc4 notebook\uff1a</span>\n<div class=\"language-bash codehilite\"><pre><span></span><code>uv<span class=\"w\"> </span>run<span class=\"w\"> </span>--with<span class=\"w\"> </span>marimo<span class=\"w\"> </span>marimo<span class=\"w\"> </span>edit<span class=\"w\"> </span>notebooks/track1_seedvc_prompt_review.py<span class=\"w\"> </span>--host<span class=\"w\"> </span><span class=\"m\">127</span>.0.0.1<span class=\"w\"> </span>--port<span class=\"w\"> </span><span class=\"m\">2720</span><span class=\"w\"> </span>--headless\nuv<span class=\"w\"> </span>run<span class=\"w\"> </span>--with<span class=\"w\"> </span>marimo<span class=\"w\"> </span>marimo<span class=\"w\"> </span>edit<span class=\"w\"> </span>notebooks/track1_seedvc_component_ablation_review.py<span class=\"w\"> </span>--host<span class=\"w\"> </span><span class=\"m\">127</span>.0.0.1<span class=\"w\"> </span>--port<span class=\"w\"> </span><span class=\"m\">2721</span><span class=\"w\"> </span>--headless\n</code></pre></div>\n<span class=\"paragraph\">Run roots:</span>\n<ul>\n<li>Prompt mode: <code>/localdisk/bowen/singing_identity/runs/track1_seedvc_prompt_baseline_30pairs</code></li>\n<li>Component ablation: <code>/localdisk/bowen/singing_identity/runs/track1_seedvc_component_ablation_12pairs</code></li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "e1eb248bcd00f888ef82ddacb7a533c1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"prompt-mode-30-pair\">Prompt Mode 30-pair \u81ea\u52a8\u7ed3\u679c</h2>\n<table>\n<thead>\n<tr>\n<th>\u6307\u6807</th>\n<th style=\"text-align: right;\">mean</th>\n<th style=\"text-align: right;\">95% bootstrap CI</th>\n<th style=\"text-align: right;\">sign</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>singing prompt \u5bf9 target singing \u7684\u589e\u76ca</td>\n<td style=\"text-align: right;\"><code>0.0870</code></td>\n<td style=\"text-align: right;\"><code>[0.0671, 0.1064]</code></td>\n<td style=\"text-align: right;\"><code>28/30</code></td>\n</tr>\n<tr>\n<td>singing prompt \u5bf9 target speech \u7684\u589e\u76ca</td>\n<td style=\"text-align: right;\"><code>-0.0694</code></td>\n<td style=\"text-align: right;\"><code>[-0.0825, -0.0566]</code></td>\n<td style=\"text-align: right;\"><code>0/30</code></td>\n</tr>\n<tr>\n<td>singing prompt \u5bf9 source singing \u7684\u589e\u76ca</td>\n<td style=\"text-align: right;\"><code>0.0130</code></td>\n<td style=\"text-align: right;\"><code>[-0.0048, 0.0299]</code></td>\n<td style=\"text-align: right;\"><code>19/30</code></td>\n</tr>\n<tr>\n<td>target-singing gain - target-speech gain</td>\n<td style=\"text-align: right;\"><code>0.1564</code></td>\n<td style=\"text-align: right;\"><code>[0.1303, 0.1813]</code></td>\n<td style=\"text-align: right;\"><code>30/30</code></td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\">\u81ea\u52a8 verdict\uff1aprompt mode effect \u5f88\u7a33\u5b9a\uff0c\u4f46\u5b83\u4e0d\u662f\u7eaf identity \u8bc1\u636e\u3002\u5b83\u53ef\u80fd\u662f identity\uff0c\u4e5f\u53ef\u80fd\u662f singing-domain / phonation / loudness-quality\u3002</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "52a2e1e59fe42bb58b522b98a8b361b7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">## Component Ablation 12-pair \u81ea\u52a8\u7ed3\u679c</span>\n<table>\n<thead>\n<tr>\n<th>condition</th>\n<th style=\"text-align: right;\">d target singing</th>\n<th style=\"text-align: right;\">d target speech</th>\n<th style=\"text-align: right;\">d source</th>\n<th style=\"text-align: right;\">d RMS dB</th>\n<th style=\"text-align: right;\">positive</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>oracle_all_singing</code></td>\n<td style=\"text-align: right;\"><code>0.1030</code></td>\n<td style=\"text-align: right;\"><code>-0.0786</code></td>\n<td style=\"text-align: right;\"><code>0.0214</code></td>\n<td style=\"text-align: right;\"><code>-0.574</code></td>\n<td style=\"text-align: right;\"><code>12/12</code></td>\n</tr>\n<tr>\n<td><code>singing_mel_only</code></td>\n<td style=\"text-align: right;\"><code>0.0392</code></td>\n<td style=\"text-align: right;\"><code>-0.0324</code></td>\n<td style=\"text-align: right;\"><code>0.0061</code></td>\n<td style=\"text-align: right;\"><code>1.916</code></td>\n<td style=\"text-align: right;\"><code>10/12</code></td>\n</tr>\n<tr>\n<td><code>singing_style_only</code></td>\n<td style=\"text-align: right;\"><code>0.0533</code></td>\n<td style=\"text-align: right;\"><code>-0.0321</code></td>\n<td style=\"text-align: right;\"><code>0.0395</code></td>\n<td style=\"text-align: right;\"><code>-2.403</code></td>\n<td style=\"text-align: right;\"><code>11/12</code></td>\n</tr>\n<tr>\n<td><code>singing_prompt_seq_only</code></td>\n<td style=\"text-align: right;\"><code>-0.0197</code></td>\n<td style=\"text-align: right;\"><code>-0.0150</code></td>\n<td style=\"text-align: right;\"><code>-0.0148</code></td>\n<td style=\"text-align: right;\"><code>2.019</code></td>\n<td style=\"text-align: right;\"><code>1/12</code></td>\n</tr>\n<tr>\n<td><code>singing_prompt_seq_mel</code></td>\n<td style=\"text-align: right;\"><code>0.0597</code></td>\n<td style=\"text-align: right;\"><code>-0.0349</code></td>\n<td style=\"text-align: right;\"><code>0.0092</code></td>\n<td style=\"text-align: right;\"><code>1.096</code></td>\n<td style=\"text-align: right;\"><code>9/12</code></td>\n</tr>\n<tr>\n<td><code>singing_prompt_seq_style</code></td>\n<td style=\"text-align: right;\"><code>0.0472</code></td>\n<td style=\"text-align: right;\"><code>-0.0415</code></td>\n<td style=\"text-align: right;\"><code>0.0315</code></td>\n<td style=\"text-align: right;\"><code>-0.764</code></td>\n<td style=\"text-align: right;\"><code>11/12</code></td>\n</tr>\n<tr>\n<td><code>singing_mel_style</code></td>\n<td style=\"text-align: right;\"><code>0.1001</code></td>\n<td style=\"text-align: right;\"><code>-0.0757</code></td>\n<td style=\"text-align: right;\"><code>0.0204</code></td>\n<td style=\"text-align: right;\"><code>-0.491</code></td>\n<td style=\"text-align: right;\"><code>12/12</code></td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\">\u81ea\u52a8 verdict\uff1a</span>\n<span class=\"paragraph\">- <code>prompt_seq_only</code> \u57fa\u672c\u4e0d\u662f\u9a71\u52a8\u9879\uff0c\u800c\u4e14\u65b9\u5411\u504f\u8d1f\u3002</span>\n<span class=\"paragraph\">- <code>mel_only</code> \u548c <code>style_only</code> \u90fd\u6709\u8d21\u732e\u3002</span>\n<span class=\"paragraph\">- <code>mel + style</code> \u51e0\u4e4e\u590d\u73b0 <code>oracle_all_singing</code>\u3002</span>\n<span class=\"paragraph\">- \u4f46\u662f\u5426\u662f identity\uff0c\u9700\u8981\u542c\u3002</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "3dbb9b8df2572e2be9a0028248bd1933",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"artifact-index\">Artifact Index</h2>\n<ul>\n<li>Track 1 v2 main: <code>/localdisk/bowen/singing_identity/runs/track1_prompt_mismatch_accounting_v2_2026-06-28</code></li>\n<li>Track 1 v2 controls: <code>/localdisk/bowen/singing_identity/runs/track1_prompt_mismatch_accounting_v2_controls_2026-06-28</code></li>\n<li>Prompt mode 30-pair: <code>/localdisk/bowen/singing_identity/runs/track1_seedvc_prompt_baseline_30pairs</code></li>\n<li>Component ablation 12-pair: <code>/localdisk/bowen/singing_identity/runs/track1_seedvc_component_ablation_12pairs</code></li>\n<li>Breathy detection: <code>/localdisk/bowen/singing_identity/runs/track2_breathy_detection_probe_2026-06-28</code></li>\n<li>Breathy subspace: <code>/localdisk/bowen/singing_identity/runs/track2_breathy_subspace_probe_2026-06-28</code></li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

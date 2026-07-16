@@ -1,0 +1,165 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.6"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "b6b560b460a4189b105d465b2d838a90",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "0ed3c6215137a9ec3ac34ed2d5f401d2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "95089d95f92865ac25425fd0a1aa3a1c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"track-1-seed-vc-component-ablation-review\">Track 1 Seed-VC Component Ablation Review</h1>\n<span class=\"paragraph\">Run root:</span>\n<span class=\"paragraph\"><code>/localdisk/bowen/singing_identity/runs/track1_seedvc_component_ablation_12pairs</code></span>\n<span class=\"paragraph\">This is an oracle diagnostic, not a prediction experiment. It asks which Seed-VC target-prompt component makes the singing prompt sound different from the speech prompt.</span>\n<span class=\"paragraph\">Components:</span>\n<ul>\n<li><code>prompt_seq</code>: Seed-VC length-regulated prompt condition from Whisper/semantic features plus F0.</li>\n<li><code>mel</code>: target prompt mel context passed to the diffusion model.</li>\n<li><code>style</code>: CAMPPlus speaker/style embedding.</li>\n</ul>\n<span class=\"paragraph\">Automatic Resemblyzer triage, relative to <code>baseline_all_speech</code>:</span>\n<ul>\n<li><code>oracle_all_singing</code>: target-singing delta <code>0.1030</code></li>\n<li><code>singing_mel_only</code>: target-singing delta <code>0.0392</code></li>\n<li><code>singing_style_only</code>: target-singing delta <code>0.0533</code></li>\n<li><code>singing_prompt_seq_only</code>: target-singing delta <code>-0.0197</code></li>\n<li><code>singing_mel_style</code>: target-singing delta <code>0.1001</code></li>\n</ul>\n<span class=\"paragraph\">Important: these automatic deltas can reflect identity, singing-domain/phonation, loudness, or quality. Human listening is the deciding evidence.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "621efd0ffd9666c50639bc2e51914186",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='3501614f-a539-9dfd-e454-bdd6b85b31a2'><marimo-slider data-initial-value='1' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Pair&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1' data-stop='12' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "14eeb29f2a4015599c851c381dea9b6c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"pair-11-ru-alto-1-target-from-zh-alto-1-source\">Pair 11: <code>RU-Alto-1</code> target from <code>ZH-Alto-1</code> source</h2>\n<span class=\"paragraph\">Pair id: <code>Russian__RU-Alto-1__Breathy__\u0410\u043d\u044f_\u041e\u0431\u043b\u043e\u043d\u0441\u043a\u0430\u044f__Paired_Speech_Group__0001__Russian__RU-Alto-1__Breathy__\u0410\u043d\u044f_\u041e\u0431\u043b\u043e\u043d\u0441\u043a\u0430\u044f__Breathy_Group__0001</code></span>\n<span class=\"paragraph\">Main question: which single swap moves baseline toward oracle most clearly?</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "586e303f270f362f29f67736e13c1197",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"references\">References</h3></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Source singing</span></span><audio src='./@file/1120364-1227193-NOa78krK.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Target speech reference</span></span><audio src='./@file/605420-1227193-2Bdr6TS9.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Target singing reference</span></span><audio src='./@file/1031952-1227193-Je2YCiSf.wav' controls></audio></div></div></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "d979f11fe8afb831a0b73d90b25b92a8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "af6fa43846aafc0fc9d12656a76680b3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"single-component-swaps\">Single Component Swaps</h3></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Baseline all speech</strong></span>\n<ul>\n<li>prompt_seq: <code>speech</code></li>\n<li>mel: <code>speech</code></li>\n<li>style: <code>speech</code></li>\n<li>d target singing: <code>0.0000</code></li>\n<li>d target speech: <code>0.0000</code></li>\n<li>d source: <code>0.0000</code></li>\n<li>d RMS dB: <code>0.00</code></li>\n<li>RMS dB: <code>-23.32</code></li>\n</ul></span><audio src='./@file/686158-1227193-c6anIB9c.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Oracle all singing</strong></span>\n<ul>\n<li>prompt_seq: <code>singing</code></li>\n<li>mel: <code>singing</code></li>\n<li>style: <code>singing</code></li>\n<li>d target singing: <code>0.0532</code></li>\n<li>d target speech: <code>-0.0818</code></li>\n<li>d source: <code>0.0674</code></li>\n<li>d RMS dB: <code>6.59</code></li>\n<li>RMS dB: <code>-16.73</code></li>\n</ul></span><audio src='./@file/686158-1227193-gl3YZMij.wav' controls></audio></div></div><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Singing prompt_seq only</strong></span>\n<ul>\n<li>prompt_seq: <code>singing</code></li>\n<li>mel: <code>speech</code></li>\n<li>style: <code>speech</code></li>\n<li>d target singing: <code>-0.0020</code></li>\n<li>d target speech: <code>-0.0432</code></li>\n<li>d source: <code>-0.0081</code></li>\n<li>d RMS dB: <code>2.49</code></li>\n<li>RMS dB: <code>-20.83</code></li>\n</ul></span><audio src='./@file/686158-1227193-HXMF7xb9.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Singing mel only</strong></span>\n<ul>\n<li>prompt_seq: <code>speech</code></li>\n<li>mel: <code>singing</code></li>\n<li>style: <code>speech</code></li>\n<li>d target singing: <code>0.0214</code></li>\n<li>d target speech: <code>-0.0671</code></li>\n<li>d source: <code>0.0350</code></li>\n<li>d RMS dB: <code>6.40</code></li>\n<li>RMS dB: <code>-16.92</code></li>\n</ul></span><audio src='./@file/686158-1227193-NxK1dB0Z.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Singing style only</strong></span>\n<ul>\n<li>prompt_seq: <code>speech</code></li>\n<li>mel: <code>speech</code></li>\n<li>style: <code>singing</code></li>\n<li>d target singing: <code>0.0423</code></li>\n<li>d target speech: <code>-0.0155</code></li>\n<li>d source: <code>0.0524</code></li>\n<li>d RMS dB: <code>-1.62</code></li>\n<li>RMS dB: <code>-24.94</code></li>\n</ul></span><audio src='./@file/686158-1227193-jpdAKp8p.wav' controls></audio></div></div></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "956ecf4a589c38bb40de39cddbfd84dd",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "The option name 'singing_prompt_seq_style' is not a valid option. Please use one of the following options: ['prompt_seq + mel', 'prompt_seq + style', 'mel + style']",
+          "traceback": []
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_1227193/__marimo__cell_BYtC_.py&quot;</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">combo</span> <span class=\"o\">=</span> <span class=\"n\">mo</span><span class=\"o\">.</span><span class=\"n\">ui</span><span class=\"o\">.</span><span class=\"n\">dropdown</span><span class=\"p\">(</span>\n  File <span class=\"nb\">&quot;/localdisk/bowen/.cache/uv/archive-v0/-PKBVB7mALKNmLaQ/lib/python3.9/site-packages/marimo/_plugins/ui/_impl/input.py&quot;</span>, line <span class=\"m\">1029</span>, in <span class=\"n\">__init__</span>\n<span class=\"w\">    </span><span class=\"nb\">super</span><span class=\"p\">()</span><span class=\"o\">.</span><span class=\"fm\">__init__</span><span class=\"p\">(</span>\n  File <span class=\"nb\">&quot;/localdisk/bowen/.cache/uv/archive-v0/-PKBVB7mALKNmLaQ/lib/python3.9/site-packages/marimo/_plugins/ui/_core/ui_element.py&quot;</span>, line <span class=\"m\">167</span>, in <span class=\"n\">__init__</span>\n<span class=\"w\">    </span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_initialize</span><span class=\"p\">(</span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_args</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/localdisk/bowen/.cache/uv/archive-v0/-PKBVB7mALKNmLaQ/lib/python3.9/site-packages/marimo/_plugins/ui/_core/ui_element.py&quot;</span>, line <span class=\"m\">273</span>, in <span class=\"n\">_initialize</span>\n<span class=\"w\">    </span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_value</span> <span class=\"o\">=</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_initial_value</span> <span class=\"o\">=</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_convert_value</span><span class=\"p\">(</span><span class=\"n\">initial_value</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/localdisk/bowen/.cache/uv/archive-v0/-PKBVB7mALKNmLaQ/lib/python3.9/site-packages/marimo/_plugins/ui/_impl/input.py&quot;</span>, line <span class=\"m\">1055</span>, in <span class=\"n\">_convert_value</span>\n<span class=\"w\">    </span><span class=\"k\">raise</span> <span class=\"ne\">ValueError</span><span class=\"p\">(</span>\n<span class=\"gr\">ValueError</span>: <span class=\"n\">The option name &#39;singing_prompt_seq_style&#39; is not a valid option. Please use one of the following options: [&#39;prompt_seq + mel&#39;, &#39;prompt_seq + style&#39;, &#39;mel + style&#39;]</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "49c07a9f961683be7dec258bf61728e4",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "Name `combo` is not defined. It was expected to be defined in ",
+          "traceback": []
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_1227193/__marimo__cell_RGSE_.py&quot;</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">_row</span> <span class=\"o\">=</span> <span class=\"n\">combo_rows</span><span class=\"p\">[</span><span class=\"n\">combo</span><span class=\"o\">.</span><span class=\"n\">value</span><span class=\"p\">]</span>\n<span class=\"gr\">NameError</span>: <span class=\"n\">name &#39;combo&#39; is not defined</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "7af711cf40678d759e015d721a98ec9f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"what-to-report-back\">What To Report Back</h3></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Please report which single component is most audible: <code>prompt_seq</code>, <code>mel</code>, <code>style</code>, or <code>none</code>; whether <code>singing_mel_style</code> gets close to <code>oracle_all_singing</code>; whether the change is identity, timbre, breathy/phonation, domain, loudness/quality, or artifact; and pair numbers where the answer is clear or unclear.</span></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This decision determines the next predictive experiment. If <code>style</code> dominates, we map/steer CAMPPlus style. If <code>mel</code> dominates, the residual is mostly prompt acoustic context. If <code>prompt_seq</code> dominates, the semantic/F0 path is still worth improving. If none dominates alone but a combo does, we build a combined adapter.</span></span></div>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

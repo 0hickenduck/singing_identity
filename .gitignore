@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+.ruff_cache/
+.DS_Store
+
+# Local workspace junk — never in git.
+output/
+tmp/
+lab/
+*.log
+
+# Copyrighted PDFs (e.g. KunquDB: publisher-authorized for research only,
+# no redistribution). Move via rsync (sync_to_lab.sh), never via git.
+docs/pdf/
+
+# Heavy binaries live on the lab server or move via rsync, never via git.
+*.npz
+*.npy
+*.pt
+*.pth
+*.wav
+*.tar.gz
+
+# Generated experiment artifacts and feature caches.
+experiments/shared_features/
+experiments/track1_timbre/features/
+experiments/track1_timbre/results/
+experiments/track2_technique/features/
+experiments/track2_technique/results/
+results/data_repair/
+results/logs/
+results/stage1_*_run/
+results/stage1_wrapper_probe_run/

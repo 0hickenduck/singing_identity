@@ -1,0 +1,112 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.6"
+  },
+  "cells": [
+    {
+      "id": "SFPL",
+      "code_hash": "b4ee08e114e1fe699514abee558198d3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"what-to-report-back\">What To Report Back</h3>\n<span class=\"paragraph\">For this checkpoint, please tell Codex:</span>\n<ul>\n<li>whether singing prompt is often closer to target identity: <code>yes</code>, <code>no</code>, or <code>mixed</code></li>\n<li>pair numbers where speech prompt wins</li>\n<li>whether the main change sounds like <code>identity</code>, <code>breathy/phonation</code>, <code>singing-domain</code>, <code>loudness/quality</code>, or <code>artifact</code></li>\n</ul>\n<span class=\"paragraph\">Decision menu:</span>\n<ul>\n<li><code>continue</code>: singing-prompt or mel/style outputs are audibly better in identity often enough to justify deeper SeedVC integration.</li>\n<li><code>rerun</code>: audio quality, loudness, pair balance, or diffusion settings make this run inconclusive.</li>\n<li><code>stop</code>: prompt-mode effect is not audible as useful identity signal.</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "04564a80fea315dfea4814bc85224828",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "da1bfb3a46c23bf690116ee6192e48c6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "4715f0faa8e16ad827c849d033a6c199",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"track-1-seed-vc-prompt-baseline-review\">Track 1 Seed-VC Prompt Baseline Review</h1>\n<span class=\"paragraph\">Human checkpoint: compare <code>target_speech_prompt</code> against <code>target_singing_prompt</code>.</span>\n<span class=\"paragraph\">Run root:</span>\n<span class=\"paragraph\"><code>/localdisk/bowen/singing_identity/runs/track1_seedvc_prompt_baseline_30pairs</code></span>\n<span class=\"paragraph\">Automatic triage from Resemblyzer:</span>\n<ul>\n<li>pairs: <code>30</code></li>\n<li>generated conditions: <code>60</code></li>\n<li>mean singing-prompt delta to target singing: <code>0.0870</code></li>\n<li>mean singing-prompt delta to target speech: <code>-0.0694</code></li>\n<li>mean singing-prompt delta to source singing: <code>0.0130</code></li>\n</ul>\n<span class=\"paragraph\">Listen row by row. The decision we need from you is whether the singing-prompt output is audibly closer to the target singer's singing voice while keeping the source melody/content usable.</span>\n<span class=\"paragraph\">Important: these scores are a triage proxy. A positive target-singing delta may mean identity, but may also mean singing-domain, breathy/phonation, loudness, or audio quality.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "621efd0ffd9666c50639bc2e51914186",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='6fb8fbef-66ac-382f-6907-bbe39e7c6d6d'><marimo-slider data-initial-value='1' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Pair&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1' data-stop='30' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "b9cdac6d51446d2ab530fe57cfec664c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"pair-22-ko-tenor-1-target-from-ko-soprano-2-source\">Pair 22: <code>KO-Tenor-1</code> target from <code>KO-Soprano-2</code> source</h2>\n<span class=\"paragraph\">Pair id: <code>Korean__KO-Tenor-1__Breathy__EYES__NOSE__LIPS__Paired_Speech_Group__0007__Korean__KO-Tenor-1__Breathy__EYES__NOSE__LIPS__Breathy_Group__0007</code></span>\n<span class=\"paragraph\">Metric deltas for singing prompt minus speech prompt:</span>\n<ul>\n<li>target singing similarity: <code>0.1688</code></li>\n<li>target speech similarity: <code>-0.0839</code></li>\n<li>source singing similarity: <code>0.0364</code></li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "2c53f3bfc8ce2548abc7d911bf109f21",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"references\">References</h3></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Source singing</span></span><audio src='./@file/2484764-1227155-EL4snwAC.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Target speech reference</span></span><audio src='./@file/3051546-1227155-lwYiw3Bp.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Target singing reference</span></span><audio src='./@file/2688956-1227155-9bXLwfeG.wav' controls></audio></div></div></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "3d5a0b6e0dfdc50979678b6ee722bd9f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"generated-outputs\">Generated Outputs</h3></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Speech prompt output</strong></span>\n<ul>\n<li>sim target singing: <code>0.7482</code></li>\n<li>sim target speech: <code>0.8222</code></li>\n<li>sim source singing: <code>0.6193</code></li>\n<li>RMS dB: <code>-12.65</code></li>\n</ul></span><audio src='./@file/1521742-1227155-r7Oe3mUf.wav' controls></audio></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Singing prompt output</strong></span>\n<ul>\n<li>sim target singing: <code>0.9170</code></li>\n<li>sim target speech: <code>0.7383</code></li>\n<li>sim source singing: <code>0.6557</code></li>\n<li>RMS dB: <code>-16.40</code></li>\n</ul></span><audio src='./@file/1521742-1227155-tRyLPDSQ.wav' controls></audio></div></div></div>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

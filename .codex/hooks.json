@@ -1,0 +1,42 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 /home/bowen/bowen_lab/codex_hooks/session_start_brief.py",
+            "timeout": 30,
+            "statusMessage": "Loading project brief"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "^Bash$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 /home/bowen/bowen_lab/codex_hooks/pre_tool_policy.py",
+            "timeout": 30,
+            "statusMessage": "Checking lab path policy"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 /home/bowen/bowen_lab/codex_hooks/stop_registry_gate.py",
+            "timeout": 30,
+            "statusMessage": "Checking experiment registry"
+          }
+        ]
+      }
+    ]
+  }
+}

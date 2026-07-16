@@ -1,0 +1,121 @@
+dataset,speaker_id,speech_utterances,singing_utterances,distinct_speech_songs,distinct_singing_songs,singing_song_ids,distinct_sessions,distinct_technique_groups,song_disjoint_eligible
+JVS_JVSMuSiC,jvs001,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs002,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs003,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs004,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs005,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs006,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs007,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs008,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs009,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs010,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs011,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs012,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs013,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs014,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs015,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs016,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs017,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs018,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs019,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs020,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs021,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs022,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs023,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs024,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs025,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs026,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs027,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs028,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs029,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs030,99,1,1,1,song_common,100,1,0
+JVS_JVSMuSiC,jvs031,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs032,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs033,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs034,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs035,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs036,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs037,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs038,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs039,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs040,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs041,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs042,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs043,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs044,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs045,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs046,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs047,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs048,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs049,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs050,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs051,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs052,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs053,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs054,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs055,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs056,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs057,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs058,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs059,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs060,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs061,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs062,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs063,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs064,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs065,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs066,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs067,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs068,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs069,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs070,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs071,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs072,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs073,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs074,99,1,1,1,song_common,100,1,0
+JVS_JVSMuSiC,jvs075,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs076,64,1,1,1,song_common,65,1,0
+JVS_JVSMuSiC,jvs077,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs078,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs079,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs080,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs081,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs082,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs083,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs084,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs085,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs086,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs087,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs088,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs089,99,1,1,1,song_common,100,1,0
+JVS_JVSMuSiC,jvs090,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs091,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs092,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs093,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs094,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs095,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs096,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs097,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs098,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs099,100,1,1,1,song_common,101,1,0
+JVS_JVSMuSiC,jvs100,100,1,1,1,song_common,101,1,0
+GTSinger_same_text_control,DE-Soprano-1,98,98,12,12,"Copilot;Danke;Die Rose;Doch ich bereu' dich nicht;Edelweiss;Es Ist Ein Schnee Gefallen;Ich Gehör Nur Mir;Ich Will Immer Wieder Dieses Fieber spür‘n;Kleine Kinder, Kleine Sorgen;Lass Jetzt Los;Meine Welt;Nehmt Abschied Brüder",1,1,1
+GTSinger_same_text_control,DE-Tenor-1,99,99,16,16,Adelaide;Am Feierabend;An die Musik;Auf Flügeln des Gesanges;Auf dem Flusse;Dein ist mein ganzes Herz;Der Müller und der Bach;Dies Blidnis ist bezaubernd schön;Gute Nacht;Ich liebe dich;In der Fremde;Morgen;Standchen;Verborgenheit;Wasserflut;Zueignung,1,1,1
+GTSinger_same_text_control,EN-Alto-1,97,97,10,10,all is found;god is a girl;innocence;let it go;once up a dream;safe and sound;sleepyhead;someday or oneday;treasure;who says,1,1,1
+GTSinger_same_text_control,EN-Alto-2,99,99,12,12,A Thousand Years;All of Me;Dream It Possible;Easy On Me;Fly Me to the Moon;Love Me Like You Do;Love Story;My Heart Will Go On;My Love;Safe and Sound;Someone Like You;Someone You Loved,1,1,1
+GTSinger_same_text_control,EN-Tenor-1,94,94,9,9,All I Ask;Always Remember Us This Way;Enchanted;I Knew You Were Trouble;Long Live;Million Reasons;Rolling in the Deep;Shallow;Someone Like You,1,1,1
+GTSinger_same_text_control,ES-Bass-1,99,99,12,12,A Gritos de Esperanza;Amar y Querer;Corre;Cuando Me Enamoro;Fantasma De La Ópera;La Gata Bajo la Lluvia;Memoria;No Llores por Mi Argentina;Quizas Quizas Quizas;Sabes;Si Tu Me Amas;Solamente Una Vez,1,1,1
+GTSinger_same_text_control,ES-Soprano-1,101,101,16,16,Ecos De Amor;Esta Noche Es Para Amar;Loveyourself;Mirame Bailar;Navidad Navidad;Profundo yo cai;Si Yo Fuera Un CHICO;call me maybe;hell;i knew you were trouble;laedaddehielo;poco;situ;tododemi;wrecking ball;yellow,1,1,1
+GTSinger_same_text_control,FR-Soprano-1,106,106,13,13,2019;Le Voyage Commence;a la vie comme a la mort;a perte de vue;adieu mon homme;anxiete;j'suis pas dupe;la chanson de la mer;la famillle que l'on a choisie;le balcon;les choristes;les passagers du vent;soleil solleil,1,1,1
+GTSinger_same_text_control,FR-Tenor-1,100,100,8,8,Lafleur;Le Toréador;Les Marionnettes;a leve toi;avant;manon;o souverain;ouvre,1,1,1
+GTSinger_same_text_control,IT-Bass-1,95,95,10,10,"Con ardore;Di Provenza il mar, il suol;Gioia dell'amore;Mio caro;Musica proibita;Non ti amo più;O sole che sorgi da Gange;Ombra mai fu;Pietà, Signore;Quanto è doloroso",1,1,1
+GTSinger_same_text_control,IT-Bass-2,97,97,7,7,Amarilli;Aprile;Mio caro;Nina;O cessate di piagarmi;Per la gloria d'adorarvi;Sogno,1,1,1
+GTSinger_same_text_control,IT-Soprano-1,81,81,15,15,Donde lieta;Giunse alfin il momento;O mio babbino caro;Quando men vo;Una donna a quindici anni;Volta la terrea fronte alle stelle;batti batti;bella ciao;controvento;lascia ch'io pianga;le violette;mattinata;pur dicesti;quando men vo;tuca tuca,1,1,1
+GTSinger_same_text_control,JA-Soprano-1,103,103,7,7,first love;heartful song;さよならの夏～コクリコ坂から～;ただいま;テルーの呗 (歌集バージョン);心做し;明日への手紙,1,1,1
+GTSinger_same_text_control,JA-Tenor-1,104,104,6,6,Heartful Song;Heartful song;さんぽ;ブルーバード;未来へ;銀の龍の背に乗って,1,1,1
+GTSinger_same_text_control,KO-Soprano-1,93,93,38,38,"all about you;black out;blueming;breathe;celebrity;coverme;dash;eight;fine;gravity;hcilthbyrtoil;jamjam;limbo;love wins all;only look at me;palette;sheesh;solo;strawberrymoon;wannabe;when this rain stop;가을 아침;걱정말아요 그대;내 손을 잡아;내 청춘에게;눈, 코, 입;다시 만난 세계;도망가자;무릎;사건의 지평선;사랑이 그렇게;소나기;시간을 달려서;안부;야신;어른;작은 별;좋은 날",1,1,1
+GTSinger_same_text_control,KO-Soprano-2,102,102,9,9,"ur;눈, 코, 입;다가와;또 한 번 사랑해;비밀;사계;안녕;유리구슬;이름이 뭐에요",1,1,1
+GTSinger_same_text_control,KO-Tenor-1,99,99,15,15,"EYES, NOSE, LIPS;IF YOU;가시리;걱정말아요 그대;눈의 꽃;단 한번의 사랑;되풀이（Repeatedly）;모든 날, 모든 순간;밀고 당겨줘;사랑은 벌이다;살다가;아름답던 별들의 밤 (Night of Beautiful Stars);일년을 하루 같이;첫 눈;총맞은것처럼",1,1,1
+GTSinger_same_text_control,RU-Alto-1,97,97,9,9,"Аня Облонская;Байкал;Бал;Если тебя со мною нет;Зачем;Зачем 2;Извольте, королева;Метель;Поезд",1,1,1
+GTSinger_same_text_control,ZH-Alto-1,95,95,8,8,不再见;云烟成雨;匆匆那年;可乐;失落沙洲;奇妙能力歌;慢慢喜欢你;成都,1,1,1
+GTSinger_same_text_control,ZH-Tenor-1,94,94,5,5,不染;会呼吸的痛;传奇;借;像我这样的人,1,1,1

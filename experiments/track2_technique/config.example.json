@@ -1,0 +1,10 @@
+{
+  "manifest": "/localdisk/bowen/singing_identity/runs/stage1_repaired_200_fresh_local/manifests/gtsinger_utterances.jsonl",
+  "phoneme_pairs": "/localdisk/bowen/singing_identity/runs/stage1_repaired_200_fresh_local/manifests/gtsinger_phoneme_pairs.jsonl",
+  "feature_root": "/localdisk/bowen/singing_identity/features/stage1_repaired_200_fresh_local",
+  "extractor": "mert_v1_95m",
+  "checkpoint_hash": "m_a_p_mert_v1_95m",
+  "layers": ["3"],
+  "techniques": ["breathy"],
+  "bootstrap_iterations": 1000
+}

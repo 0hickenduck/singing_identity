@@ -1,0 +1,47 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .gemini/hooks/session-start.py",
+            "timeout": 30000
+          }
+        ]
+      }
+    ],
+    "BeforeAgent": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .gemini/hooks/inject-workflow-state.py",
+            "timeout": 15000
+          }
+        ]
+      }
+    ]
+  },
+  "agents": {
+    "overrides": {
+      "trellis-research": {
+        "modelConfig": {
+          "model": "gemini-3-flash-preview"
+        }
+      },
+      "trellis-implement": {
+        "modelConfig": {
+          "model": "gemini-3.1-pro-preview"
+        }
+      },
+      "trellis-check": {
+        "modelConfig": {
+          "model": "gemini-3.1-pro-preview"
+        }
+      }
+    }
+  }
+}

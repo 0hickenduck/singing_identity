@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTuber Voice Pipeline | Automated Audio Curation</title>
+    <meta name="description" content="An automated pipeline for discovering, purifying, and segmenting VTuber audio into clean datasets for ML voice conversion.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="background-mesh"></div>
+    
+    <header class="hero">
+        <div class="hero-content">
+            <span class="badge">Open Source Machine Learning</span>
+            <h1>VTuber Voice Pipeline</h1>
+            <p class="subtitle">Automated dataset curation for voice conversion research. From raw YouTube streams to clean, segmented ML training data in minutes.</p>
+            <div class="hero-actions">
+                <a href="#demo" class="btn primary">View Live Demo</a>
+                <a href="https://github.com/0hickenduck/arti6_linearvc" class="btn secondary">View on GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="pipeline-section">
+            <h2 class="section-title">How It Works</h2>
+            <div class="pipeline-steps">
+                
+                <div class="step-card" data-step="1">
+                    <div class="step-icon">1</div>
+                    <h3>Discovery & Download</h3>
+                    <p>Uses Gemini Flash to analyze channels and isolate Speech vs Singing content, downloading tracks automatically with yt-dlp.</p>
+                </div>
+
+                <div class="step-card" data-step="2">
+                    <div class="step-icon">2</div>
+                    <h3>Separation</h3>
+                    <p>Applies Demucs to strip background music, sound effects, and game noise, leaving only raw vocals.</p>
+                </div>
+
+                <div class="step-card" data-step="3">
+                    <div class="step-icon">3</div>
+                    <h3>VAD & Segmentation</h3>
+                    <p>Utilizes Silero VAD to slice the continuous vocal track into clean 3-15 second phonetic chunks ideal for training.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="demo-section">
+            <h2 class="section-title">Audio Extraction Showcase</h2>
+            
+            <div class="demo-container">
+                <div class="track-card before">
+                    <div class="track-header">
+                        <span class="tag tag-red">Before</span>
+                        <h3>Raw YouTube Audio</h3>
+                    </div>
+                    <p class="track-desc">Contains BGM, game sounds, and overlapping noise.</p>
+                    <div class="audio-player">
+                        <!-- Placeholder audio for portfolio demonstration -->
+                        <audio controls preload="none">
+                            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <div class="demo-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                </div>
+
+                <div class="track-card after">
+                    <div class="track-header">
+                        <span class="tag tag-green">After</span>
+                        <h3>Cleaned Dataset Chunks</h3>
+                    </div>
+                    <p class="track-desc">Isolated vocals ready for ML model ingestion.</p>
+                    <div class="audio-player">
+                        <!-- Placeholder audio for portfolio demonstration -->
+                        <audio controls preload="none">
+                            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built for VTuber Voice Conversion Research by <a href="https://github.com/0hickenduck">Bowen</a>.</p>
+    </footer>
+</body>
+</html>
