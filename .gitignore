@@ -34,3 +34,6 @@ results/data_repair/
 results/logs/
 results/stage1_*_run/
 results/stage1_wrapper_probe_run/
+
+# Editor local config
+.vscode/
