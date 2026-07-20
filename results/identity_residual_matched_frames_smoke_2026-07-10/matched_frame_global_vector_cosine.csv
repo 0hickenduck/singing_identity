@@ -1,0 +1,2 @@
+dataset,model,layer,split_seed,global_vector_cosine_to_full_utterance_global,matched_global_norm,full_global_norm,train_speakers
+GTSinger_same_text_control_fixed_frames,wavlm_l12,12,13,0.9551948498785376,1.2365661839792905,1.3492176831533005,DE-Soprano-1;DE-Tenor-1;EN-Alto-2;EN-Tenor-1;ES-Bass-1;ES-Soprano-1;IT-Bass-2;JA-Tenor-1;KO-Soprano-2;RU-Alto-1

@@ -1,0 +1,14 @@
+experiment_name: identity_residual_final_validation_2026-07-09
+hostname: valkyrie03
+git_commit: 36f959ddefb804726d5c882058c9c2d2fd37160e
+python: /home/bowen/bowen_lab/projects/singing_identity/.venv/bin/python3
+run_root: /localdisk/bowen/singing_identity/runs/identity_residual_final_validation_2026-07-09
+results_dir: results/identity_residual_final_validation_2026-07-09
+cache_root: /localdisk/bowen/.cache
+datasets:
+  - JVS_JVSMuSiC
+  - GTSinger
+control_draws: 50
+all_preprocessing_fit_population: train_speakers_only
+claim_supported: global_mode_duration_correlated_residual_accounting
+known_limitations: mode and nuisance probes use speaker-mode centroids; shuffled-global control is mathematically degenerate under paired train speakers

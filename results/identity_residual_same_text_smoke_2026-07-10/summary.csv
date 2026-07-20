@@ -1,0 +1,9 @@
+dataset,model,layer,direction,variant,rows,R1_mean,R1_std,R1_CI_low,R1_CI_high
+GTSinger_same_text_control,wavlm_l12,12,G->S,G->S:correct_sign_global,1,0.9,0.0,0.9,0.9
+GTSinger_same_text_control,wavlm_l12,12,G->S,G->S:random_same_norm,2,0.35,0.05000000000000002,0.3025,0.3975
+GTSinger_same_text_control,wavlm_l12,12,G->S,G->S:raw,1,0.4,0.0,0.4,0.4
+GTSinger_same_text_control,wavlm_l12,12,G->S,G->S:wrong_sign_global,1,0.1,0.0,0.1,0.1
+GTSinger_same_text_control,wavlm_l12,12,S->G,S->G:correct_sign_global,1,0.7,0.0,0.7,0.7
+GTSinger_same_text_control,wavlm_l12,12,S->G,S->G:random_same_norm,2,0.1,0.0,0.1,0.1
+GTSinger_same_text_control,wavlm_l12,12,S->G,S->G:raw,1,0.1,0.0,0.1,0.1
+GTSinger_same_text_control,wavlm_l12,12,S->G,S->G:wrong_sign_global,1,0.1,0.0,0.1,0.1

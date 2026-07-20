@@ -1,0 +1,11 @@
+dataset,model,layer,split_seed,speaker_id,same_text_control_pairs,raw_rank,corrected_rank,rank_improvement,raw_same_minus_impostor_margin,corrected_same_minus_impostor_margin,nearest_impostor_before,nearest_impostor_after
+GTSinger_same_text_control,wavlm_l12,12,13,EN-Alto-1,97,1,1,0,0.024904640550439283,0.007563183249019834,ZH-Tenor-1,ZH-Alto-1
+GTSinger_same_text_control,wavlm_l12,12,13,FR-Soprano-1,106,2,1,1,0.010150950704560513,0.007319779874681687,EN-Alto-1,IT-Soprano-1
+GTSinger_same_text_control,wavlm_l12,12,13,FR-Tenor-1,100,10,4,6,-0.017394834116501334,0.0012852170408305108,EN-Alto-1,KO-Tenor-1
+GTSinger_same_text_control,wavlm_l12,12,13,IT-Bass-1,95,6,2,4,0.0006909400735305438,0.00676471331644013,EN-Alto-1,KO-Tenor-1
+GTSinger_same_text_control,wavlm_l12,12,13,IT-Soprano-1,81,2,1,1,0.010517457851763834,0.0073036000402114665,EN-Alto-1,FR-Soprano-1
+GTSinger_same_text_control,wavlm_l12,12,13,JA-Soprano-1,103,2,1,1,0.0112512804841578,0.008131659632268029,EN-Alto-1,FR-Soprano-1
+GTSinger_same_text_control,wavlm_l12,12,13,KO-Soprano-1,93,2,4,-2,0.008606939882664255,0.002855164516775921,EN-Alto-1,JA-Soprano-1
+GTSinger_same_text_control,wavlm_l12,12,13,KO-Tenor-1,99,5,1,4,0.0018514878796163092,0.008269020999153165,EN-Alto-1,JA-Soprano-1
+GTSinger_same_text_control,wavlm_l12,12,13,ZH-Alto-1,95,4,1,3,0.004721366313857223,0.009571656170625165,EN-Alto-1,ZH-Tenor-1
+GTSinger_same_text_control,wavlm_l12,12,13,ZH-Tenor-1,94,2,1,1,0.012743681509351346,0.00754555730251516,EN-Alto-1,ZH-Alto-1

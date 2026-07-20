@@ -1,0 +1,30 @@
+name: identity_residual_synthetic_gate
+seed: 13
+speakers: 48
+cases:
+- no_nuisance_mode_dominance
+- mode_nuisance_dominance
+- mode_proxy
+- within_mode_nuisance
+- random_nuisance
+- leakage_trap
+variants:
+- raw
+- mode_dummy_only
+- full_nuisance_mean_preserving
+- full_nuisance_classic
+- random_nuisance_mean_preserving
+speaker_split: speaker-disjoint; first 65% train speakers, remainder test speakers
+fit_scope: residualizers and scalers are fit only on train speaker utterances
+outputs:
+- summary.csv
+- README_results.md
+- experiment_card.yaml
+passed: true
+case_status:
+  no_nuisance_mode_dominance: true
+  mode_nuisance_dominance: true
+  mode_proxy: true
+  within_mode_nuisance: true
+  random_nuisance: true
+  leakage_trap: true

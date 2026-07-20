@@ -212,3 +212,31 @@ resolve that before starting another review session.
 If a task may repeatedly read/write many files, use verified local scratch such as `/localdisk/bowen` on `valkyrie03`.
 If a task is small, low-frequency, and needs cross-node visibility, `/home/bowen` is acceptable.
 When uncertain, run `findmnt -T <path>` first; do not choose an NFS path for heavy I/O.
+
+## Git Sync Rules
+
+- Code, configs, docs, and compact results move only through git
+  (origin: `github.com/0hickenduck/singing_identity`). The rsync scripts
+  (`sync_to_lab.sh`, `sync_from_lab.sh`) are only for large non-git artifacts.
+- Sessions launched with the `cx` wrapper pull automatically. If
+  `git pull --ff-only` fails, stop and report it; never merge or force-push.
+- End every completed task by running `bash scripts/sync_push.sh "<short message>"`.
+  It stages only files up to 2MB and lists anything it skipped; larger artifacts
+  belong under `/localdisk/bowen`, not in the repo.
+
+## Run Completion Contract
+
+A run is complete only when all four of these exist:
+
+1. `/localdisk/bowen/singing_identity/runs/<RUN_NAME>/` containing a copy of the
+   exact config or command used.
+2. `/localdisk/bowen/singing_identity/status/<RUN_NAME>/status.json`.
+3. `results/<RUN_NAME>/` in the repo with a compact report
+   (`final_experiment_report.md` or `README_results.md`): what ran, key metrics,
+   verdict, and pointers to the localdisk paths. Small files only (up to 2MB
+   each); row-level dumps and score matrices stay on `/localdisk`.
+4. One appended row in `results/index.md`:
+   `| YYYY-MM-DD | <RUN_NAME> | one-sentence verdict | [report](<RUN_NAME>/...) |`
+
+`RUN_NAME` format: `<experiment>_<YYYY-MM-DD>[_smoke|_minimal]`. Everything on
+`/localdisk` is deletable scratch; the `results/` report is the artifact of record.

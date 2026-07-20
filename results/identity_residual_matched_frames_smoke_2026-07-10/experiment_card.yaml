@@ -1,0 +1,15 @@
+experiment_name: identity_residual_matched_frames_2026-07-10
+hostname: valkyrie03
+python: /home/bowen/bowen_lab/projects/singing_identity/.venv/bin/python3
+git_commit: 36f959ddefb804726d5c882058c9c2d2fd37160e
+run_root: /localdisk/bowen/singing_identity/runs/identity_residual_matched_frames_smoke_2026-07-10
+feature_root: /localdisk/bowen/singing_identity/features/stage1_repaired_200_fresh_local
+cache_root: /localdisk/bowen/.cache
+selection: technique=control and independent lexical equality after NFKC/boundary normalization
+fixed_frames: 100
+crops_per_pair: 2
+candidate_count: 4
+global_vector_fit_population: train speakers only, using matched-frame samples
+threshold_policy: TMR train-calibrated; EER descriptive held-out ROC crossing
+interpretation: reevaluation under matched effective-frame conditions; this does not claim duration removal
+known_limitations: GTSinger has 20 singers and language is speaker-confounded; voiced-mask matching does not remove every recording or segmentation difference

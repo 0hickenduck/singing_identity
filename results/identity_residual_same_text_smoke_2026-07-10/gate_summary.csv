@@ -1,0 +1,2 @@
+model,delta_R1_mean,delta_R1_CI_low,delta_R1_CI_high,wrong_sign_delta_R1,random_mean_delta_R1,gate_pass
+wavlm_l12,0.6,0.6,0.6,0.0,0.0,True

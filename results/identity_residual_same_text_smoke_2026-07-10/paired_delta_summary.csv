@@ -1,0 +1,7 @@
+dataset,model,layer,target_variant,baseline_variant,metric,paired_splits,paired_split_seeds,delta_R1_mean,delta_R1_std_across_splits,delta_R1_CI_low,delta_R1_CI_high,CI_method,pairing_unit
+GTSinger_same_text_control,wavlm_l12,12,S->G:correct_sign_global,S->G:raw,R1,1,13,0.6,0.0,0.6,0.6,percentile_bootstrap_of_mean_paired_split_deltas_200,same_dataset_model_layer_split_seed
+GTSinger_same_text_control,wavlm_l12,12,S->G:wrong_sign_global,S->G:raw,R1,1,13,0.0,0.0,0.0,0.0,percentile_bootstrap_of_mean_paired_split_deltas_200,same_dataset_model_layer_split_seed
+GTSinger_same_text_control,wavlm_l12,12,G->S:correct_sign_global,G->S:raw,R1,1,13,0.5,0.0,0.5,0.5,percentile_bootstrap_of_mean_paired_split_deltas_200,same_dataset_model_layer_split_seed
+GTSinger_same_text_control,wavlm_l12,12,G->S:wrong_sign_global,G->S:raw,R1,1,13,-0.30000000000000004,0.0,-0.30000000000000004,-0.30000000000000004,percentile_bootstrap_of_mean_paired_split_deltas_200,same_dataset_model_layer_split_seed
+GTSinger_same_text_control,wavlm_l12,12,S->G:random_same_norm_mean,S->G:raw,R1,1,13,0.0,0.0,0.0,0.0,percentile_bootstrap_of_mean_paired_split_deltas_200,same_dataset_model_layer_split_seed
+GTSinger_same_text_control,wavlm_l12,12,G->S:random_same_norm_mean,G->S:raw,R1,1,13,-0.050000000000000044,0.0,-0.050000000000000044,-0.050000000000000044,percentile_bootstrap_of_mean_paired_split_deltas_200,same_dataset_model_layer_split_seed

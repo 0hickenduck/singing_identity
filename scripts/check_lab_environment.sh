@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Keep the repo current before any long run (sequential-editing workflow).
+git -C "$(dirname "$0")/.." pull --ff-only || echo "WARNING: git pull --ff-only failed; repo may be stale or diverged."
+
 # Lightweight preflight for the Gavo lab cluster. This script is intentionally
 # read-mostly: it reports node, mount, cache, and helper-tool state before long
 # jobs start.

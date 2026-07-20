@@ -1,0 +1,5 @@
+dataset,model,layer,split_seed,target,test_speakers_N,chance_R1,R1_num,R1_den,R1,R5,MRR,same_cos_mean,diff_cos_mean,same_minus_diff,CI,reliability_pass,split_half_method
+JVS_JVSMuSiC,wavlm_l12,12,13,speech,20,0.05,20,20,1.0,1.0,1.0,0.9996834859387418,0.9951698571016243,0.004513628837117478,not_bootstrapped_minimal,underpowered_single_singing_file,single_singing_utterance_frame_halves
+JVS_JVSMuSiC,wavlm_l12,12,13,singing,20,0.05,20,20,1.0,1.0,1.0,0.9963774018109837,0.9882820837467612,0.008095318064222479,not_bootstrapped_minimal,underpowered_single_singing_file,single_singing_utterance_frame_halves
+JVS_JVSMuSiC,wavlm_l12,12,13,delta,20,0.05,20,20,1.0,1.0,1.0,0.9276196318590909,0.8002921259347757,0.1273275059243152,not_bootstrapped_minimal,underpowered_single_singing_file,single_singing_utterance_frame_halves
+JVS_JVSMuSiC,wavlm_l12,12,13,r,20,0.05,20,20,1.0,1.0,1.0,0.7619259448853313,0.017281004702554205,0.744644940182777,not_bootstrapped_minimal,underpowered_single_singing_file,single_singing_utterance_frame_halves

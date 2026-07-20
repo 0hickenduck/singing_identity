@@ -1,0 +1,4 @@
+dataset,model,splits,expected_raw_R1,observed_raw_R1,difference_pp_raw_R1,expected_corrected_R1,observed_corrected_R1,difference_pp_corrected_R1,expected_raw_EER,observed_raw_EER,difference_pp_raw_EER,expected_corrected_EER,observed_corrected_EER,difference_pp_corrected_EER,R0_status
+JVS_JVSMuSiC,wavlm_l12,20,0.135,0.13500000000000004,2.7755575615628914e-15,0.363,0.36249999999999993,-0.050000000000005596,0.421,0.4209868421052632,-0.0013157894736770537,0.266,0.2658552631578947,-0.014473684210530857,PASS
+JVS_JVSMuSiC,hubert_l6,0,0.195,nan,nan,0.605,nan,nan,0.371,nan,nan,0.186,nan,nan,FAIL_AUDIT_REQUIRED
+JVS_JVSMuSiC,mert_l3,0,0.365,nan,nan,0.66,nan,nan,0.285,nan,nan,0.161,nan,nan,FAIL_AUDIT_REQUIRED

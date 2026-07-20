@@ -1,0 +1,2 @@
+dataset,model,layer,split_seed,global_fraction,mean_cos_delta_mu,delta_PC1_explained,delta_PC3_explained,residual_PC1_explained,residual_PC3_explained,test_speakers_N,interpretation
+JVS_JVSMuSiC,wavlm_l12,12,13,0.8838494690568726,0.9118380115640596,0.20635355905235378,0.41876424099076076,0.2063535590523539,0.4187642409907611,20,global_high

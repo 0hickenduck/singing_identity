@@ -1,0 +1,10 @@
+{
+  "all_cpus": "",
+  "all_gpus": "GPU 0: NVIDIA RTX A6000 | util 4% | mem 0/49140 MiB",
+  "cache_root_mount": "TARGET     SOURCE         FSTYPE  SIZE  AVAIL USE%\n/localdisk /dev/nvme0n1p1 ext4    1.8T 252.9G  81%",
+  "gtsinger_feature_root_mount": "TARGET     SOURCE         FSTYPE  SIZE  AVAIL USE%\n/localdisk /dev/nvme0n1p1 ext4    1.8T 252.9G  81%",
+  "hostname": "valkyrie03",
+  "jvs_feature_root_mount": "TARGET     SOURCE         FSTYPE  SIZE  AVAIL USE%\n/localdisk /dev/nvme0n1p1 ext4    1.8T 252.9G  81%",
+  "python": "/localdisk/bowen/singing_identity/envs/metric_robustness/bin/python3",
+  "run_root_mount": "TARGET     SOURCE         FSTYPE  SIZE  AVAIL USE%\n/localdisk /dev/nvme0n1p1 ext4    1.8T 252.9G  81%"
+}

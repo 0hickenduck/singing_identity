@@ -1,0 +1,13 @@
+dataset,model,layer,target_variant,baseline_variant,metric,paired_splits,delta_mean,delta_CI_low,delta_CI_high,CI_method
+JVS_JVSMuSiC,wavlm_l12,12,correct_sign_global,raw,R1,20,0.22750000000000004,0.2155625,0.24637500000000004,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,correct_sign_global,raw,EER_test_descriptive,20,-0.15513157894736845,-0.15745230263157897,-0.14254440789473685,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,correct_sign_global,raw,TMR_at_FMR_1pct,20,0.11499999999999999,0.0766875,0.13137500000000002,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,correct_sign_global,raw,genuine_minus_impostor,20,-8.889571045348488e-05,-9.778295118394592e-05,-7.382486905703465e-05,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,wrong_sign_global,raw,R1,20,-0.03250000000000001,-0.046375,-0.019187499999999996,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,wrong_sign_global,raw,EER_test_descriptive,20,0.04092105263157895,0.037909539473684216,0.05560032894736841,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,wrong_sign_global,raw,TMR_at_FMR_1pct,20,-0.030000000000000006,-0.053562500000000006,-0.02,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,wrong_sign_global,raw,genuine_minus_impostor,20,-5.668481529505498e-05,-6.130566751672631e-05,-5.123076560697951e-05,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,random_same_norm_mean,raw,R1,20,-0.0024999999999999996,-0.008874999999999997,0.0125,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,random_same_norm_mean,raw,EER_test_descriptive,20,0.009671052631578947,0.004148026315789474,0.016218749999999997,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,random_same_norm_mean,raw,TMR_at_FMR_1pct,20,-0.004999999999999999,-0.013874999999999997,0.0,paired_split_bootstrap_10; repeated_splits_not_independent_speakers
+JVS_JVSMuSiC,wavlm_l12,12,random_same_norm_mean,raw,genuine_minus_impostor,20,-6.995947704810379e-05,-7.672796953317518e-05,-6.052435282870777e-05,paired_split_bootstrap_10; repeated_splits_not_independent_speakers

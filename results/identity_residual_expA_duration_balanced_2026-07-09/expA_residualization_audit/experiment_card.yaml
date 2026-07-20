@@ -1,0 +1,36 @@
+experiment_name: expA_residualization_audit
+dataset: JVS_JVSMuSiC
+manifest: /localdisk/bowen/singing_identity/runs/jvs_music_retrieval_2026-07-08/manifests/jvs_music_utterances.jsonl
+feature_root: /localdisk/bowen/singing_identity/features/jvs_music_2026-07-08
+run_root: /localdisk/bowen/singing_identity/runs/identity_residual_expA_expanded_2026-07-09/duration_balanced
+hostname: valkyrie03
+git_commit: 36f959ddefb804726d5c882058c9c2d2fd37160e
+python: /home/bowen/bowen_lab/projects/singing_identity/.venv/bin/python3
+cache_root: /localdisk/bowen/.cache
+max_speech_per_speaker: 20
+duration_balanced: True
+residualization_formula: mean_preserving_and_classic_reported
+all_preprocessing_fit_population: train_speakers_only
+claim_supported: audit_only_until_synthetic_and_controls_pass
+known_limitations: minimal suite; bootstrap CIs and full sweeps not yet included
+split_seeds:
+  - 13
+  - 17
+  - 19
+  - 23
+  - 29
+  - 31
+  - 37
+  - 41
+  - 43
+  - 47
+  - 53
+  - 59
+  - 61
+  - 67
+  - 71
+  - 73
+  - 79
+  - 83
+  - 89
+  - 97

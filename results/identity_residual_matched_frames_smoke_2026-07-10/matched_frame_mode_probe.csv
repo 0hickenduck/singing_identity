@@ -1,0 +1,3 @@
+dataset,model,layer,split_seed,variant,fixed_frames,mode_probe_granularity,AUC,balanced_accuracy,F1,coefficient_norm,intercept,decision_threshold,fit_iterations
+GTSinger_same_text_control_fixed_frames,wavlm_l12,12,13,raw,100,speaker_mode_centroid,1.0,1.0,1.0,0.390470437422998,1.3307115815346227,0.0,12.0
+GTSinger_same_text_control_fixed_frames,wavlm_l12,12,13,symmetric_global_corrected,100,speaker_mode_centroid,0.59,0.6499999999999999,0.631578947368421,2.7584645640139945e-13,3.45006918492714e-28,-4.939617793410754e-14,1.0

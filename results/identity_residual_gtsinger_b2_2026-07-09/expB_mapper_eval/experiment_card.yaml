@@ -1,0 +1,12 @@
+experiment_name: expB_mapper_eval
+dataset: GTSinger
+manifest: /localdisk/bowen/singing_identity/runs/stage1_repaired_200_fresh_local/manifests/gtsinger_utterances.jsonl
+feature_root: /localdisk/bowen/singing_identity/features/stage1_repaired_200_fresh_local
+run_root: /localdisk/bowen/singing_identity/runs/identity_residual_gtsinger_b1_2026-07-09
+hostname: valkyrie03
+git_commit: 36f959ddefb804726d5c882058c9c2d2fd37160e
+split_protocol: gtsinger_10_0_10
+cache_root: /localdisk/bowen/.cache
+target: global_plus_person_residual
+primary_baseline: global_mean_residual
+known_limitations: GTSinger is exploratory; fixed hyperparameters when no dev speakers exist.

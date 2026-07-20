@@ -1,0 +1,2 @@
+dataset,model,rows,alignment_cosine_mean_mean,alignment_cosine_mean_p2_5,alignment_cosine_mean_p97_5,rank_improvement_mean_mean,rank_improvement_mean_p2_5,rank_improvement_mean_p97_5,retrieval_success_change_mean_mean,retrieval_success_change_mean_p2_5,retrieval_success_change_mean_p97_5
+JVS_JVSMuSiC,wavlm_l12,98,0.9167703841656124,0.7988662643618533,0.9595817917784636,4.422436831875608,-10.958333333333332,15.191666666666668,0.23853255587949465,-1.0,1.0

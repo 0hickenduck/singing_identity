@@ -1,0 +1,2 @@
+dataset,model,layer,unique_speakers,alignment_mean,rho_median,kappa_median,beta_median,fraction_unique_speakers_rho_lt_1,E_test_speaker_aggregate,E_test_speaker_bootstrap_CI_low,E_test_speaker_bootstrap_CI_high,magnitude_gate
+JVS_JVSMuSiC,wavlm_l12,12,98,0.9167703841656122,0.38805981355647434,0.9355132651771438,0.9845666895165929,1.0,0.8300548570916251,0.8132929961904118,0.8443444956702312,PASS

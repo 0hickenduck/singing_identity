@@ -1,0 +1,5 @@
+dataset,model,layer,split_seed,target,test_speakers_N,chance_R1,R1_num,R1_den,R1,R5,MRR,same_cos_mean,diff_cos_mean,same_minus_diff,CI,reliability_pass,split_half_method
+GTSinger,wavlm_l12,12,13,speech,10,0.1,9,10,0.9,1.0,0.9199999999999999,0.9949149720188087,0.9813434998595665,0.01357147215924226,not_bootstrapped_minimal,inspect,utterance_disjoint_halves
+GTSinger,wavlm_l12,12,13,singing,10,0.1,10,10,1.0,1.0,1.0,0.9974794596145171,0.9870819411018562,0.010397518512660908,not_bootstrapped_minimal,inspect,utterance_disjoint_halves
+GTSinger,wavlm_l12,12,13,delta,10,0.1,8,10,0.8,1.0,0.8699999999999999,0.8868515167239925,0.7409551085209584,0.14589640820303418,not_bootstrapped_minimal,inspect,utterance_disjoint_halves
+GTSinger,wavlm_l12,12,13,r,10,0.1,9,10,0.9,0.9,0.9142857142857143,0.590561248241875,0.08668522352527588,0.5038760247165991,not_bootstrapped_minimal,pass,utterance_disjoint_halves

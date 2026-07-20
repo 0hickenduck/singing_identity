@@ -1,0 +1,2 @@
+dataset,model,layer,speakers,clean_same_text_control_pairs,split_protocol,gallery_sizes_not_run
+GTSinger_same_text_control,wavlm_l12,12,20,1953,gtsinger_10_0_10,JVS:50 unavailable under fixed 60/20/20 test split; GTSinger:20 unavailable under fixed 10/10 split
