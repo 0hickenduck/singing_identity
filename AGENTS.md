@@ -240,3 +240,11 @@ A run is complete only when all four of these exist:
 
 `RUN_NAME` format: `<experiment>_<YYYY-MM-DD>[_smoke|_minimal]`. Everything on
 `/localdisk` is deletable scratch; the `results/` report is the artifact of record.
+
+## Session Start (any machine)
+
+At the start of every session, run `git pull --ff-only`. If it fails because of
+local uncommitted changes or divergence, do not merge, rebase, stash, or force
+anything automatically — show the user `git status` and ask how to proceed.
+Pushing is the user's (or sync_push.sh's) job at task end, never automatic
+mid-session.
