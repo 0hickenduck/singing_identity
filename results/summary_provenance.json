@@ -1,94 +1,4 @@
 {
-  "20260905-155939_seed42": {
-    "command": "/home/bowen/bowen_lab/projects/singing_identity/.venv/bin/python3 scripts/run/run_stage1.py --synthetic --smoke-only --models acoustic",
-    "config_snapshot": "runs/stage1_multimodel/acoustic/20260905-155939_seed42/config.json",
-    "data": {
-      "dataset": "synthetic_gtsinger",
-      "feature_manifest_sha256": "",
-      "feature_root": "/localdisk/bowen/singing_identity/features",
-      "feature_set": "acoustic",
-      "feature_version": "default",
-      "manifest": "data/processed/gtsinger_utterances.jsonl",
-      "manifest_sha256": "53a77785de992f568f41b9486c44f3b7bfd34a8b38d19bd18e8dd07041b7e752"
-    },
-    "git": {
-      "branch": "main",
-      "commit": "f1bde5ce3896ae88ef43b804e31c97902f1b246b",
-      "dirty": true,
-      "patch_artifact": "artifacts/git_patch.diff",
-      "remote_url": "git@github.com:0hickenduck/singing_identity.git"
-    },
-    "provenance_status": "complete",
-    "run_directory": "runs/stage1_multimodel/acoustic/20260905-155939_seed42",
-    "validation": {
-      "errors": [],
-      "run_dir": "/home/bowen/bowen_lab/projects/singing_identity/runs/stage1_multimodel/acoustic/20260905-155939_seed42",
-      "run_id": "20260905-155939_seed42",
-      "status": "complete",
-      "valid": true,
-      "warnings": []
-    }
-  },
-  "20260905-162233_seed42": {
-    "command": "/home/bowen/bowen_lab/projects/singing_identity/.venv/bin/python3 scripts/run/run_stage1.py --synthetic --smoke-only --models acoustic",
-    "config_snapshot": "runs/stage1_multimodel/acoustic/20260905-162233_seed42/config.json",
-    "data": {
-      "dataset": "synthetic_gtsinger",
-      "feature_manifest_sha256": "",
-      "feature_root": "/localdisk/bowen/singing_identity/features",
-      "feature_set": "acoustic",
-      "feature_version": "default",
-      "manifest": "data/processed/gtsinger_utterances.jsonl",
-      "manifest_sha256": "53a77785de992f568f41b9486c44f3b7bfd34a8b38d19bd18e8dd07041b7e752"
-    },
-    "git": {
-      "branch": "reorg/conventional-layout",
-      "commit": "f1bde5ce3896ae88ef43b804e31c97902f1b246b",
-      "dirty": true,
-      "patch_artifact": "artifacts/uncommitted.patch",
-      "remote_url": "git@github.com:0hickenduck/singing_identity.git"
-    },
-    "provenance_status": "complete",
-    "run_directory": "runs/stage1_multimodel/acoustic/20260905-162233_seed42",
-    "validation": {
-      "errors": [],
-      "run_dir": "/home/bowen/bowen_lab/projects/singing_identity/runs/stage1_multimodel/acoustic/20260905-162233_seed42",
-      "run_id": "20260905-162233_seed42",
-      "status": "complete",
-      "valid": true,
-      "warnings": []
-    }
-  },
-  "20260905-162413_seed42": {
-    "command": "/home/bowen/bowen_lab/projects/singing_identity/.venv/bin/python3 scripts/run/run_stage1.py --synthetic --smoke-only --models acoustic",
-    "config_snapshot": "runs/stage1_multimodel/acoustic/20260905-162413_seed42/config.json",
-    "data": {
-      "dataset": "synthetic_gtsinger",
-      "feature_manifest_sha256": "",
-      "feature_root": "/localdisk/bowen/singing_identity/features",
-      "feature_set": "acoustic",
-      "feature_version": "default",
-      "manifest": "data/processed/gtsinger_utterances.jsonl",
-      "manifest_sha256": "53a77785de992f568f41b9486c44f3b7bfd34a8b38d19bd18e8dd07041b7e752"
-    },
-    "git": {
-      "branch": "reorg/conventional-layout",
-      "commit": "903f6067caa4f9fd4458aa9cc4cb12b23e0c9882",
-      "dirty": false,
-      "patch_artifact": null,
-      "remote_url": "git@github.com:0hickenduck/singing_identity.git"
-    },
-    "provenance_status": "complete",
-    "run_directory": "runs/stage1_multimodel/acoustic/20260905-162413_seed42",
-    "validation": {
-      "errors": [],
-      "run_dir": "/home/bowen/bowen_lab/projects/singing_identity/runs/stage1_multimodel/acoustic/20260905-162413_seed42",
-      "run_id": "20260905-162413_seed42",
-      "status": "complete",
-      "valid": true,
-      "warnings": []
-    }
-  },
   "identity_residual_final_validation_2026-07-09": {
     "datasets": "",
     "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
@@ -270,5 +180,51 @@
       "data.manifest_sha256",
       "seed"
     ]
+  },
+  "smoke_acceptance_20260906_014800": {
+    "command": "/home/bowen/bowen_lab/projects/singing_identity/.venv/bin/python3 scripts/run/run_stage1.py --synthetic --smoke-only --models acoustic --experiment stage1_smoke --run-root runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800 --seed 42",
+    "config": {
+      "approach": "acoustic",
+      "bootstrap": 1000,
+      "device": "cuda",
+      "experiment": "stage1_smoke",
+      "folds": 5,
+      "manifest_path": "runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800/manifests/gtsinger_utterances.jsonl",
+      "max_rows_per_singer": 5000,
+      "models": [
+        "acoustic"
+      ],
+      "seed": 42,
+      "smoke_only": true,
+      "strict_reproducibility": false,
+      "synthetic": true
+    },
+    "data": {
+      "dataset": "synthetic_gtsinger",
+      "feature_manifest_sha256": null,
+      "feature_provenance": "not_applicable",
+      "feature_root": "/home/bowen/bowen_lab/projects/singing_identity/runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800/features",
+      "feature_set": "acoustic",
+      "feature_version": "default",
+      "manifest": "runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800/manifests/gtsinger_utterances.jsonl",
+      "manifest_sha256": "94ad3b1f60f6aaf3c5b4f8625a041737bd72a23b9189392b921339eaf36f14ea"
+    },
+    "git": {
+      "branch": "reorg/conventional-layout",
+      "commit": "8ab4182a4c89a747bcc9a4766aa2712939daf63c",
+      "dirty": false,
+      "patch_artifact": null,
+      "remote_url": "git@github.com:0hickenduck/singing_identity.git"
+    },
+    "provenance_status": "complete",
+    "run_directory": "runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800",
+    "validation": {
+      "errors": [],
+      "run_dir": "/home/bowen/bowen_lab/projects/singing_identity/runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800",
+      "run_id": "smoke_acceptance_20260906_014800",
+      "status": "complete",
+      "valid": true,
+      "warnings": []
+    }
   }
 }
