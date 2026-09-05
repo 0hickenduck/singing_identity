@@ -148,16 +148,20 @@ def main() -> int:
             synth_candidates = list(run_dir.glob("synthetic/**/utterances.jsonl"))
             if synth_candidates:
                 consumed_manifest = synth_candidates[0]
+        try:
+            manifest_to_record = consumed_manifest.relative_to(ROOT)
+        except ValueError:
+            manifest_to_record = consumed_manifest
         data_prov = get_data_provenance(
             dataset_name="synthetic_gtsinger",
-            manifest_path=consumed_manifest,
+            manifest_path=str(manifest_to_record),
             feature_set=approach_name,
             feature_root=args.feature_root,
             extractor=args.models.split(",")[0],
         )
         metadata["data"] = data_prov
         (run_dir / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
-        resolved_config["manifest_path"] = str(consumed_manifest)
+        resolved_config["manifest_path"] = str(manifest_to_record)
         (run_dir / "config.json").write_text(json.dumps(resolved_config, indent=2) + "\n", encoding="utf-8")
 
     # Clean up duplicate legacy config if present

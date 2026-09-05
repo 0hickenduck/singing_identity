@@ -122,8 +122,10 @@ def get_data_provenance(
     layer: Optional[str | int] = None,
 ) -> Dict[str, Any]:
     """Capture data and feature provenance separately from Git."""
-    m_path = Path(manifest_path).resolve() if Path(manifest_path).is_absolute() else Path(manifest_path)
-    manifest_sha256 = compute_file_sha256(m_path) if m_path.exists() else ""
+    p = Path(manifest_path)
+    m_path = p.resolve()
+    sha = compute_file_sha256(m_path)
+    manifest_sha256 = sha if sha else None
 
     resolved_feat_root = resolve_feature_root(feature_root)
     feature_manifest_sha256: Optional[str] = None
