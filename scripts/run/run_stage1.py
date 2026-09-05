@@ -18,7 +18,7 @@ from singing_identity.utils.provenance import (
     record_run_metrics,
     validate_run_provenance,
 )
-from legacy.run_stage1_overnight import Stage1Runner, parse_args as parse_stage1_args
+from singing_identity.runner import Stage1Runner, parse_args as parse_stage1_args
 
 
 def main() -> int:
@@ -140,6 +140,30 @@ def main() -> int:
     # Run Stage 1 execution
     runner = Stage1Runner(args)
     rc = runner.run()
+
+    # For synthetic runs, record the actual consumed synthetic manifest and its actual SHA-256
+    if args.synthetic:
+        consumed_manifest = runner.manifest if runner.manifest.exists() else (run_dir / "manifests" / "gtsinger_utterances.jsonl")
+        if not consumed_manifest.exists():
+            synth_candidates = list(run_dir.glob("synthetic/**/utterances.jsonl"))
+            if synth_candidates:
+                consumed_manifest = synth_candidates[0]
+        data_prov = get_data_provenance(
+            dataset_name="synthetic_gtsinger",
+            manifest_path=consumed_manifest,
+            feature_set=approach_name,
+            feature_root=args.feature_root,
+            extractor=args.models.split(",")[0],
+        )
+        metadata["data"] = data_prov
+        (run_dir / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+        resolved_config["manifest_path"] = str(consumed_manifest)
+        (run_dir / "config.json").write_text(json.dumps(resolved_config, indent=2) + "\n", encoding="utf-8")
+
+    # Clean up duplicate legacy config if present
+    legacy_cfg = run_dir / "resolved_config.json"
+    if legacy_cfg.exists():
+        legacy_cfg.unlink()
 
     # Extract metrics from run outputs and record structured metrics.json
     metrics: dict[str, Any] = {}

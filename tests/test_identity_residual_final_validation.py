@@ -4,11 +4,13 @@ import unittest
 
 import numpy as np
 
-from legacy.probing.run_identity_residual_final_validation import (
+from singing_identity.methods.identity_residual import (
     add_global_rows,
     mode_probe_centroid,
     paired_split_delta_summaries,
     restricted_retrieval,
+)
+from singing_identity.evaluation.metrics import (
     retrieval_chance_summary,
 )
 

@@ -18,7 +18,8 @@ class IdentityResidualSyntheticTest(unittest.TestCase):
             result = subprocess.run(
                 [
                     sys.executable,
-                     "legacy/probing/run_identity_residual_synthetic.py",
+                    "-m",
+                    "singing_identity.probing.synthetic_gate",
                     "--out-dir",
                     str(out_dir),
                     "--seed",

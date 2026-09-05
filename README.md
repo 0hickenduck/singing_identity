@@ -31,7 +31,6 @@ This repository contains the benchmark code, declarative experiment configuratio
 | [`runs/`](file:///home/bowen/bowen_lab/projects/singing_identity/runs/) | Execution run folders (`config.json`, `metadata.json`, `command.txt`, `metrics.json`, `artifacts/`) | **Scripts** |
 | [`results/`](file:///home/bowen/bowen_lab/projects/singing_identity/results/) | Aggregated benchmark tables (`summary.csv`) and milestone research reports | **Scripts & Humans** |
 | [`docs/`](file:///home/bowen/bowen_lab/projects/singing_identity/docs/) | Research design specifications, notes (`blueprints/`, `advisor_reviews/`), and server workflows | **Humans** |
-| [`legacy/`](file:///home/bowen/bowen_lab/projects/singing_identity/legacy/) | Archived historical scripts, probes, and one-off workflows from earlier iterations | **Archived** (Read-only) |
 | [`tests/`](file:///home/bowen/bowen_lab/projects/singing_identity/tests/) | Automated unit tests for algorithms, manifests, runners, and provenance verification | **Humans** |
 
 ```text
@@ -50,29 +49,33 @@ singing_identity/
 │       ├── gtsinger_phone_examples.jsonl
 │       └── gtsinger_phoneme_pairs.jsonl
 ├── src/singing_identity/              # Core reusable scientific package
-│   ├── data/                          # Manifest reading/writing & cache validation
+│   ├── data/                          # Manifest reading/writing, synthetic generator & cache validation
 │   ├── methods/                       # OAS dual fitting, residual projection, steering
 │   ├── evaluation/                    # Verification metrics, ROC-DET, cosine scoring
-│   └── utils/                         # Research utilities and matrix math
+│   ├── probing/                       # Probing pipelines (mode, retrieval, technique)
+│   ├── intervention/                  # Intervention models & latent steering
+│   ├── runner.py                      # Stage 1 benchmark execution engine
+│   └── utils/                         # Research utilities, matrix math & provenance
 ├── scripts/
 │   ├── data/                          # CLI entry points for manifest building & feature extraction
 │   ├── run/                           # CLI entry points for experiment execution
 │   ├── evaluate/                      # CLI entry points for metric evaluation
-│   └── summarize/                     # CLI entry points for report auditing
+│   ├── summarize/                     # CLI entry points for report auditing
+│   └── wt_setup.sh                    # Lab worktree environment setup
 ├── runs/                              # Run metadata, configs, and metric logs
 │   └── README.md                      # Run standard and offloading guidelines
 ├── results/                           # Aggregated benchmark-level results
 │   ├── README.md                      # Overview of benchmark findings
 │   ├── index.md                       # Canonical historical run index
 │   ├── summary.csv                    # Consolidated benchmark comparison table
-│   └── reports/                       # Formal experiment markdown reports
+│   └── summary_provenance.json        # Machine-readable companion provenance
 ├── docs/                              # Research documentation, guidelines, protocol
 │   ├── workflows/                     # Server workflows and transfer instructions
 │   ├── context/                       # Experiment context notes
 │   ├── design/                        # Technical architecture specifications
-│   └── notes/                         # Conceptual blueprints (free_recall/, pro_suggestions/)
-├── legacy/                            # Deprecated/historical scripts
-└── tests/                             # Unit tests (all 46 tests passing)
+│   ├── notes/                         # Conceptual blueprints (blueprints/, advisor_reviews/)
+│   └── MIGRATION_RECORD.md            # Complete archive mapping from pre-reorganization Git history
+└── tests/                             # Unit tests (all 51 tests passing)
 ```
 
 ---

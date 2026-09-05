@@ -6,9 +6,7 @@ import sys
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-
-from probing.run_identity_residual_robustness import (
+from singing_identity.evaluation.metrics import (
     eer,
     roc_det_points,
     train_threshold_at_fmr,

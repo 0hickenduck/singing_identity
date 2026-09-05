@@ -36,5 +36,4 @@ notebook = [
 pythonpath = [
     ".",
     "src",
-    "legacy",
 ]

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from legacy.probing.run_identity_residual_same_text import (
+from singing_identity.data.manifests import (
     normalize_lexical_text,
     select_clean_control_pairs,
 )

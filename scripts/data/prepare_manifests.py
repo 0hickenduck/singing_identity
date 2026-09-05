@@ -9,6 +9,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+
+from singing_identity.data.synthetic import make_synthetic_dataset
 
 
 def main() -> int:
@@ -27,58 +30,47 @@ def main() -> int:
     if args.dataset in ("synthetic",):
         syn_root = Path(args.synthetic_root) if args.synthetic_root else out_dir / "synthetic"
         print(f"[DATA PREP] Generating synthetic dataset at {syn_root}...")
-        subprocess.run(
-            [
-                sys.executable,
-                str(ROOT / "legacy/data_prep/make_synthetic_experiment.py"),
-                "--root",
-                str(syn_root),
-                "--speakers",
-                "4",
-                "--items-per-mode",
-                "2",
-            ],
-            cwd=ROOT,
-            check=True,
+        make_synthetic_dataset(
+            root=syn_root,
+            speakers=4,
+            items_per_mode=2,
         )
         print(f"[✓] Synthetic manifest generated: {syn_root / 'synthetic_run_config.json'}")
         return 0
 
     if args.dataset in ("gtsinger", "all"):
-        print("[DATA PREP] Preparing GTSinger manifests...")
-        script = ROOT / "legacy/data_prep/build_gtsinger_manifests.py"
-        if script.exists():
-            subprocess.run([sys.executable, str(script)], cwd=ROOT, check=True)
-        print(f"[✓] GTSinger manifests ready in {out_dir}")
+        print("[DATA PREP] Verifying GTSinger manifests...")
+        manifest = out_dir / "gtsinger_utterances.jsonl"
+        if manifest.exists():
+            print(f"[✓] GTSinger manifests ready in {out_dir}")
+        else:
+            print(f"[!] Warning: {manifest} not found. Ensure raw dataset is available.")
 
     if args.dataset in ("jvs", "all"):
-        print("[DATA PREP] Preparing JVS-MuSiC manifests...")
-        script = ROOT / "legacy/data_prep/build_jvs_music_manifests.py"
-        if script.exists():
-            subprocess.run([sys.executable, str(script)], cwd=ROOT, check=True)
-        print(f"[✓] JVS-MuSiC manifests ready in {out_dir}")
+        print("[DATA PREP] Verifying JVS-MuSiC manifests...")
+        manifest = out_dir / "jvs_music_utterances.jsonl"
+        if manifest.exists():
+            print(f"[✓] JVS-MuSiC manifests ready in {out_dir}")
+        else:
+            print(f"[*] Note: {manifest} may be generated from external source.")
 
     if args.extract_features:
         print(f"[DATA PREP] Extracting features using {args.approach} to {args.feature_root}...")
-        # Check approach config
-        app_cfg = json.loads(Path(args.approach).read_text(encoding="utf-8"))
-        model_type = app_cfg.get("model_type", "acoustic")
         manifest_file = out_dir / "gtsinger_utterances.jsonl"
-        extract_script = ROOT / f"legacy/data_prep/extract_{model_type}_features.py"
-        if extract_script.exists():
-            subprocess.run(
-                [
-                    sys.executable,
-                    str(extract_script),
-                    "--manifest",
-                    str(manifest_file),
-                    "--feature-root",
-                    str(args.feature_root),
-                ],
-                cwd=ROOT,
-                check=True,
-            )
-            print(f"[✓] Features extracted to {args.feature_root}")
+        subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "singing_identity.data.extractors",
+                "--manifest",
+                str(manifest_file),
+                "--feature-root",
+                str(args.feature_root),
+            ],
+            cwd=ROOT,
+            check=True,
+        )
+        print(f"[✓] Features extracted to {args.feature_root}")
 
     return 0
 

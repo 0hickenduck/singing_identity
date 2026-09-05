@@ -19,7 +19,8 @@ class SyntheticPipelineTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "synthetic"
             self.run_cmd(
-                 "legacy/data_prep/make_synthetic_experiment.py",
+                 "-m",
+                "singing_identity.data.synthetic",
                 "--root",
                 str(root),
                 "--speakers",
@@ -29,7 +30,8 @@ class SyntheticPipelineTest(unittest.TestCase):
             )
             config = json.loads((root / "synthetic_run_config.json").read_text(encoding="utf-8"))
             self.run_cmd(
-                 "legacy/data_prep/validate_feature_cache.py",
+                 "-m",
+                "singing_identity.data.features",
                 "--manifest",
                 config["track1_manifest"],
                 "--feature-root",
@@ -44,7 +46,8 @@ class SyntheticPipelineTest(unittest.TestCase):
                 str(root / "validate_features.json"),
             )
             self.run_cmd(
-                 "legacy/probing/run_mode_probe.py",
+                 "-m",
+                "singing_identity.probing.mode_probe",
                 "--manifest",
                 config["track1_manifest"],
                 "--feature-root",
@@ -61,7 +64,8 @@ class SyntheticPipelineTest(unittest.TestCase):
                 str(root / "mode_predictions.jsonl"),
             )
             self.run_cmd(
-                 "legacy/probing/run_residual_control.py",
+                 "-m",
+                "singing_identity.probing.residual_control",
                 "--manifest",
                 config["track1_manifest"],
                 "--feature-root",
@@ -78,7 +82,8 @@ class SyntheticPipelineTest(unittest.TestCase):
                 str(root / "residual_mode_predictions.jsonl"),
             )
             self.run_cmd(
-                 "legacy/probing/run_speaker_retrieval.py",
+                 "-m",
+                "singing_identity.probing.speaker_retrieval",
                 "--manifest",
                 config["track1_manifest"],
                 "--feature-root",
@@ -93,7 +98,8 @@ class SyntheticPipelineTest(unittest.TestCase):
                 str(root / "retrieval_metrics.json"),
             )
             self.run_cmd(
-                 "legacy/probing/run_technique_directions.py",
+                 "-m",
+                "singing_identity.probing.technique_directions",
                 "--pairs",
                 config["track2_pairs"],
                 "--feature-root",
@@ -112,7 +118,8 @@ class SyntheticPipelineTest(unittest.TestCase):
                 "10",
             )
             self.run_cmd(
-                 "legacy/intervention/run_micro_mapper.py",
+                 "-m",
+                "singing_identity.intervention.micro_mapper",
                 "--manifest",
                 config["track1_manifest"],
                 "--pairs",
@@ -133,7 +140,8 @@ class SyntheticPipelineTest(unittest.TestCase):
                 str(root / "mapper_model.npz"),
             )
             self.run_cmd(
-                 "legacy/intervention/run_seedvc_inject.py",
+                 "-m",
+                "singing_identity.intervention.seedvc_inject",
                 "--manifest",
                 config["track1_manifest"],
                 "--pairs",
@@ -158,7 +166,8 @@ class SyntheticPipelineTest(unittest.TestCase):
                 "2",
             )
             self.run_cmd(
-                 "legacy/intervention/run_latent_steering.py",
+                 "-m",
+                "singing_identity.intervention.latent_steering",
                 "--pairs",
                 config["track2_pairs"],
                 "--directions",

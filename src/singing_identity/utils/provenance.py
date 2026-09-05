@@ -126,8 +126,9 @@ def get_data_provenance(
     manifest_sha256 = compute_file_sha256(m_path) if m_path.exists() else ""
 
     resolved_feat_root = resolve_feature_root(feature_root)
-    feature_manifest_sha256 = ""
-    feature_version = ""
+    feature_manifest_sha256: Optional[str] = None
+    feature_provenance = "not_applicable"
+    feature_version = "default"
 
     if feature_set or extractor:
         extractor_name = extractor or feature_set or ""
@@ -144,12 +145,14 @@ def get_data_provenance(
 
         if meta_file.exists():
             feature_manifest_sha256 = compute_file_sha256(meta_file)
+            feature_provenance = "cached"
             try:
                 meta_data = json.loads(meta_file.read_text(encoding="utf-8"))
                 feature_version = str(meta_data.get("checkpoint_hash", meta_data.get("feature_dim", "1.0")))
             except Exception:
                 feature_version = "1.0"
         else:
+            feature_provenance = "not_applicable"
             # Check if directory exists at all
             if not candidate_meta.exists() and not (resolved_feat_root / extractor_name).exists():
                 reconstruct_cmd = (
@@ -166,9 +169,10 @@ def get_data_provenance(
     return {
         "dataset": dataset_name,
         "manifest": str(manifest_path),
-        "manifest_sha256": manifest_sha256,
+        "manifest_sha256": manifest_sha256 if manifest_sha256 else None,
         "feature_set": feature_set or extractor or "raw",
         "feature_version": feature_version or "default",
+        "feature_provenance": feature_provenance,
         "feature_manifest_sha256": feature_manifest_sha256,
         "feature_root": str(resolved_feat_root),
     }

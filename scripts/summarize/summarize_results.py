@@ -88,10 +88,17 @@ def discover_and_aggregate_runs(
             }
             rows.append(row)
 
+            config_data = {}
+            if (run_folder / "config.json").exists():
+                try:
+                    config_data = json.loads((run_folder / "config.json").read_text(encoding="utf-8"))
+                except Exception:
+                    pass
+
             companion_provenance[run_id] = {
                 "provenance_status": row["provenance_status"],
                 "run_directory": str(run_folder.relative_to(ROOT)),
-                "config_snapshot": str((run_folder / "config.json").relative_to(ROOT)) if (run_folder / "config.json").exists() else None,
+                "config": config_data,
                 "command": exec_info.get("command"),
                 "git": git_info,
                 "data": data_info,
