@@ -111,18 +111,24 @@ def main() -> int:
         )
         args.run_root = run_dir
     else:
-        run_dir = args.run_root
+        run_dir = args.run_root.resolve()
         run_dir.mkdir(parents=True, exist_ok=True)
+        exp_name = args.experiment
+        appr_name = approach_name
+        if len(run_dir.parts) >= 3 and run_dir.parent.name and run_dir.parent.parent.name:
+            appr_name = run_dir.parent.name
+            exp_name = run_dir.parent.parent.name
         _, metadata = init_run_directory(
-            base_runs_dir=run_dir.parent.parent,
-            experiment_name=run_dir.parent.name,
-            approach_name=run_dir.name,
+            base_runs_dir=base_runs,
+            experiment_name=exp_name,
+            approach_name=appr_name,
             run_id=run_dir.name,
             seed=args.seed,
             resolved_config=resolved_config,
             data_provenance=data_prov,
             strict_git=args.strict_reproducibility,
             repo_root=ROOT,
+            target_run_dir=run_dir,
         )
 
     if args.report is None:

@@ -38,6 +38,8 @@ def discover_and_aggregate_runs(
     strict_provenance: bool = False,
 ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     """Scan runs and results, validate provenance, and extract benchmark metrics."""
+    runs_dir = runs_dir.resolve()
+    results_dir = results_dir.resolve()
     rows: List[Dict[str, Any]] = []
     companion_provenance: Dict[str, Any] = {}
 

@@ -233,13 +233,18 @@ def init_run_directory(
     strict_git: bool = False,
     command_str: Optional[str] = None,
     repo_root: Optional[Path] = None,
+    target_run_dir: Optional[Path | str] = None,
 ) -> Tuple[Path, Dict[str, Any]]:
     """Initialize a standardized run folder: config.json, metadata.json, command.txt, logs/, artifacts/."""
     now_str = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
-    if not run_id:
-        run_id = f"{now_str}_seed{seed}"
-
-    run_dir = Path(base_runs_dir) / experiment_name / approach_name / run_id
+    if target_run_dir is not None:
+        run_dir = Path(target_run_dir)
+        if not run_id:
+            run_id = run_dir.name
+    else:
+        if not run_id:
+            run_id = f"{now_str}_seed{seed}"
+        run_dir = Path(base_runs_dir) / experiment_name / approach_name / run_id
     logs_dir = run_dir / "logs"
     artifacts_dir = run_dir / "artifacts"
     logs_dir.mkdir(parents=True, exist_ok=True)
