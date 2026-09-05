@@ -1,0 +1,17 @@
+{
+  "alpha": 1.0,
+  "checkpoint_hash": "microsoft_wavlm_base_plus",
+  "cosine_mean": 0.6922758775256778,
+  "cosine_std": 0.024365143252191215,
+  "extractor": "wavlm_base_plus",
+  "global_mean_residual_cosine_mean": 0.6896251267592389,
+  "layer_or_stream": "3",
+  "model": "ridge_speech_to_delta",
+  "mse_mean": 0.0020121114472396663,
+  "run_id": "micro_mapper_ridge",
+  "stage": "stage_b",
+  "test_pairs": 4,
+  "test_speakers": 3,
+  "train_pairs": 35,
+  "train_speakers": 15
+}

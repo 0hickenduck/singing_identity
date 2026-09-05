@@ -1,13 +1,19 @@
 from __future__ import annotations
 
-from scripts.probing.run_identity_residual_paper_closure import (
-    BASELINE_CONDITIONS,
-    HEADLINE_MODELS,
-    cosine_scores,
+from singing_identity.methods.identity_residual import (
     fit_diagonal_whitener,
     remove_subspace,
+)
+from singing_identity.evaluation.metrics import (
+    cosine_scores,
     summarize_baseline,
 )
+
+BASELINE_CONDITIONS = (
+    "oas_whitened_cosine_raw",
+    "oas_whitened_cosine_query",
+)
+HEADLINE_MODELS = ["wavlm_l12", "hubert_l6", "mert_l3"]
 
 
 def baseline_rows(r1_shift: float = 0.0) -> list[dict[str, object]]:

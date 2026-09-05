@@ -6,7 +6,7 @@ from pathlib import Path
 
 import numpy as np
 
-from scripts.research_utils import (
+from singing_identity.utils.research_utils import (
     ExperimentError,
     FEATURE_KEYS,
     UTTERANCE_COLUMNS,

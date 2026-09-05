@@ -6,9 +6,7 @@ import unittest
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-
-from probing.run_identity_residual_matched_frames import choose_matched_crops, crop_starts, frame_vector
+from singing_identity.evaluation.metrics import choose_matched_crops, crop_starts, frame_vector
 
 
 class MatchedFrameControlTests(unittest.TestCase):

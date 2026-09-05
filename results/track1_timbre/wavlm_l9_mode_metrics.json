@@ -1,0 +1,22 @@
+{
+  "checkpoint_hash": "microsoft_wavlm_base_plus",
+  "controls": "none",
+  "extractor": "wavlm_base_plus",
+  "layer_or_stream": "9",
+  "manifest_hash": "66348fd5239f2a4c50bc29e8e11a67c7d151ca541b0938156b6d1d3531dee222",
+  "metrics": {
+    "accuracy": 0.8,
+    "auc": 1.0
+  },
+  "probe_type": "numpy_logistic_regression",
+  "representation": "mean_std",
+  "run_id": "mode_probe",
+  "seed": 13,
+  "split_name": "speaker_disjoint",
+  "stage": "stage_a",
+  "target": "mode_binary",
+  "test_items": 10,
+  "test_speakers": 2,
+  "train_items": 58,
+  "train_speakers": 13
+}

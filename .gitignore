@@ -1,5 +1,6 @@
 __pycache__/
 *.py[cod]
+*.egg-info/
 .pytest_cache/
 .mypy_cache/
 .venv/
@@ -24,16 +25,18 @@ docs/pdf/
 *.wav
 *.tar.gz
 
-# Generated experiment artifacts and feature caches.
-experiments/shared_features/
-experiments/track1_timbre/features/
-experiments/track1_timbre/results/
-experiments/track2_technique/features/
-experiments/track2_technique/results/
+# Generated experiment artifacts, feature caches, and local runs.
+data/raw/
+data/interim/
+data/features/
+features/
+results/track2_technique/*.jsonl
 results/data_repair/
 results/logs/
 results/stage1_*_run/
 results/stage1_wrapper_probe_run/
+runs/*
+!runs/README.md
 
 # Editor local config
 .vscode/

@@ -1,0 +1,230 @@
+{
+  "identity_residual_final_validation_2026-07-09": {
+    "datasets": "",
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_final_validation_2026-07-09",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_final_validation_corrected_2026-07-10": {
+    "datasets": "",
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_final_validation_corrected_2026-07-10",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_matched_frames_2026-07-10": {
+    "datasets": null,
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_matched_frames_2026-07-10",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_matched_frames_smoke_2026-07-10": {
+    "datasets": null,
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_matched_frames_smoke_2026-07-10",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_metric_robustness_2026-07-13": {
+    "datasets": "",
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_metric_robustness_2026-07-13",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_metric_robustness_smoke_2026-07-13": {
+    "datasets": "",
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_metric_robustness_smoke_2026-07-13",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_paper_closure_2026-07-15": {
+    "datasets": null,
+    "git_commit": "unknown",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_paper_closure_2026-07-15",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_paper_supplement_2026-07-16": {
+    "datasets": null,
+    "git_commit": "92a914d324e21129a839db09efbb4fc926f51824",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_paper_supplement_2026-07-16",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_protocol_robustness_2026-07-10": {
+    "datasets": "",
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_protocol_robustness_2026-07-10",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_protocol_robustness_gts_smoke_2026-07-10": {
+    "datasets": "",
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_protocol_robustness_gts_smoke_2026-07-10",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_protocol_robustness_smoke_2026-07-10": {
+    "datasets": "",
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_protocol_robustness_smoke_2026-07-10",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_same_text_2026-07-10": {
+    "datasets": null,
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_same_text_2026-07-10",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_same_text_smoke_2026-07-10": {
+    "datasets": null,
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_same_text_smoke_2026-07-10",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "identity_residual_spectrum_2026-07-10": {
+    "datasets": null,
+    "git_commit": "36f959ddefb804726d5c882058c9c2d2fd37160e",
+    "hostname": "valkyrie03",
+    "provenance_status": "partial",
+    "run_directory": "results/identity_residual_spectrum_2026-07-10",
+    "unrecoverable_fields": [
+      "git.dirty",
+      "execution.command",
+      "data.manifest_sha256",
+      "seed"
+    ]
+  },
+  "smoke_acceptance_20260906_014800": {
+    "command": "/home/bowen/bowen_lab/projects/singing_identity/.venv/bin/python3 scripts/run/run_stage1.py --synthetic --smoke-only --models acoustic --experiment stage1_smoke --run-root runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800 --seed 42",
+    "config": {
+      "approach": "acoustic",
+      "bootstrap": 1000,
+      "device": "cuda",
+      "experiment": "stage1_smoke",
+      "folds": 5,
+      "manifest_path": "runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800/manifests/gtsinger_utterances.jsonl",
+      "max_rows_per_singer": 5000,
+      "models": [
+        "acoustic"
+      ],
+      "seed": 42,
+      "smoke_only": true,
+      "strict_reproducibility": false,
+      "synthetic": true
+    },
+    "data": {
+      "dataset": "synthetic_gtsinger",
+      "feature_manifest_sha256": null,
+      "feature_provenance": "not_applicable",
+      "feature_root": "/home/bowen/bowen_lab/projects/singing_identity/runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800/features",
+      "feature_set": "acoustic",
+      "feature_version": "default",
+      "manifest": "runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800/manifests/gtsinger_utterances.jsonl",
+      "manifest_sha256": "94ad3b1f60f6aaf3c5b4f8625a041737bd72a23b9189392b921339eaf36f14ea"
+    },
+    "git": {
+      "branch": "reorg/conventional-layout",
+      "commit": "8ab4182a4c89a747bcc9a4766aa2712939daf63c",
+      "dirty": false,
+      "patch_artifact": null,
+      "remote_url": "git@github.com:0hickenduck/singing_identity.git"
+    },
+    "provenance_status": "complete",
+    "run_directory": "runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800",
+    "validation": {
+      "errors": [],
+      "run_dir": "/home/bowen/bowen_lab/projects/singing_identity/runs/stage1_smoke/acoustic/smoke_acceptance_20260906_014800",
+      "run_id": "smoke_acceptance_20260906_014800",
+      "status": "complete",
+      "valid": true,
+      "warnings": []
+    }
+  }
+}

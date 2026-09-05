@@ -1,0 +1,7 @@
+{
+  "name": "mert_v1_95m",
+  "hf_model_id": "m-a-p/MERT-v1-95M",
+  "layers": [3, 6, 9, 12],
+  "pooling": "mean",
+  "dimension": 768
+}

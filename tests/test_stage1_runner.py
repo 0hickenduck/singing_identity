@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 from types import SimpleNamespace
 
-from scripts.run_stage1_overnight import Stage1Runner
+from singing_identity.runner import Stage1Runner
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,7 +21,7 @@ class Stage1RunnerTest(unittest.TestCase):
             subprocess.run(
                 [
                     sys.executable,
-                    "scripts/run_stage1_overnight.py",
+                    "scripts/run/run_stage1.py",
                     "--synthetic",
                     "--smoke-only",
                     "--run-root",
@@ -121,7 +121,7 @@ class Stage1RunnerTest(unittest.TestCase):
             proc = subprocess.run(
                 [
                     sys.executable,
-                    "scripts/run_stage1_overnight.py",
+                    "scripts/run/run_stage1.py",
                     "--run-root",
                     str(run_root),
                     "--report",

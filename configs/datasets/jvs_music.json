@@ -1,0 +1,5 @@
+{
+  "dataset_name": "JVS-MuSiC",
+  "raw_path": "/localdisk/bowen/singing_identity/data/jvs_music",
+  "manifest": "data/processed/jvs_music_manifest.jsonl"
+}

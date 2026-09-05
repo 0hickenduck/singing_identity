@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import numpy as np
 
-from scripts.probing.run_identity_residual_metric_robustness import (
+from singing_identity.methods.identity_residual import fit_oas_dual
+from singing_identity.evaluation.metrics import (
     cosine_scores,
     euclidean_scores,
-    fit_oas_dual,
     ranks_from_scores,
 )
 
