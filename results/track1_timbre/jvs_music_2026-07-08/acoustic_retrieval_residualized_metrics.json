@@ -1,0 +1,35 @@
+{
+  "chance_recall_at_1": 0.01,
+  "checkpoint_hash": "local_wave_v1",
+  "controls": "f0_energy_duration_voiced_rms",
+  "extractor": "acoustic_baseline",
+  "layer_or_stream": "frame25ms_hop20ms",
+  "manifest_hash": "ee98906853d4e42f04d69b54924ea54389b916a31522b55c5b271f36ba6a6313",
+  "num_speakers": 100,
+  "probe_type": "cosine_retrieval",
+  "representation": "mean_std_centroid",
+  "row_split_counts": {
+    "dev": 1514,
+    "test": 1479,
+    "train": 7068
+  },
+  "run_id": "speaker_retrieval",
+  "seed": 13,
+  "singing_to_speech_map": 0.14882080029825775,
+  "singing_to_speech_recall_at_1": 0.09,
+  "singing_to_speech_recall_at_1_norm": 9.0,
+  "singing_to_speech_recall_at_5": 0.18,
+  "speaker_split_counts": {
+    "dev": 15,
+    "test": 15,
+    "train": 70
+  },
+  "speech_to_singing_map": 0.1457661719807993,
+  "speech_to_singing_recall_at_1": 0.07,
+  "speech_to_singing_recall_at_1_norm": 7.000000000000001,
+  "speech_to_singing_recall_at_5": 0.17,
+  "split_name": "all_speaker_centroids_train_fit_residualizer",
+  "stage": "stage_a",
+  "target": "speaker_id",
+  "train_only_residualization": true
+}

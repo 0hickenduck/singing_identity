@@ -1,0 +1,922 @@
+{
+  "bootstrap": 1000,
+  "checkpoint_hash": "local_wave_v1",
+  "extractor": "acoustic_baseline",
+  "groups": [
+    {
+      "bootstrap_angle_mean_deg": 44.87691421404656,
+      "bootstrap_angle_std_deg": 34.72367695933964,
+      "direction_norm": 773.6078156049391,
+      "num_pairs": 14,
+      "phone": "<AP>",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 63.38557753298366,
+      "bootstrap_angle_std_deg": 20.179781162435688,
+      "direction_norm": 594.98333749752,
+      "num_pairs": 6,
+      "phone": "<AP>",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 3280.3681579143627,
+      "num_pairs": 1,
+      "phone": "<AP>",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2164.405733167022,
+      "num_pairs": 1,
+      "phone": "AH0_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 9.02240552049012,
+      "bootstrap_angle_std_deg": 2.0527386790265174,
+      "direction_norm": 9565.800841215321,
+      "num_pairs": 2,
+      "phone": "DH_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 2737.5089551799265,
+      "num_pairs": 1,
+      "phone": "D_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2768.7831104841594,
+      "num_pairs": 1,
+      "phone": "EH1_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 3846.035436386262,
+      "num_pairs": 1,
+      "phone": "IH1_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 4476.695019511676,
+      "num_pairs": 1,
+      "phone": "IY1_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 1319.362359694317,
+      "num_pairs": 1,
+      "phone": "M_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1148.992347159423,
+      "num_pairs": 1,
+      "phone": "N_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 19.903860872168206,
+      "bootstrap_angle_std_deg": 1.7236401109717074,
+      "direction_norm": 3183.056874215003,
+      "num_pairs": 2,
+      "phone": "R_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.45469271836066,
+      "bootstrap_angle_std_deg": 1.5870509819090381,
+      "direction_norm": 3893.191759935565,
+      "num_pairs": 2,
+      "phone": "S_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 7281.355806276004,
+      "num_pairs": 1,
+      "phone": "T_en",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 17.693327706951976,
+      "bootstrap_angle_std_deg": 2.9457172171947175,
+      "direction_norm": 1441.897552587073,
+      "num_pairs": 2,
+      "phone": "a_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 53.56923678690822,
+      "bootstrap_angle_std_deg": 22.058726137042303,
+      "direction_norm": 320.215675660763,
+      "num_pairs": 3,
+      "phone": "a_it",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 46.32582152444176,
+      "bootstrap_angle_std_deg": 48.37998028187908,
+      "direction_norm": 728.5742719828152,
+      "num_pairs": 8,
+      "phone": "a_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 21.106233585418924,
+      "bootstrap_angle_std_deg": 0.7013387171145009,
+      "direction_norm": 1637.4651993824148,
+      "num_pairs": 2,
+      "phone": "a_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 47.03889028777252,
+      "bootstrap_angle_std_deg": 8.505137271547124,
+      "direction_norm": 614.3341872875484,
+      "num_pairs": 2,
+      "phone": "a_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1592.0305112448368,
+      "num_pairs": 1,
+      "phone": "b_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 4022.789885191036,
+      "num_pairs": 1,
+      "phone": "b_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2176.773996252701,
+      "num_pairs": 1,
+      "phone": "d_it",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 7.843675638966655,
+      "bootstrap_angle_std_deg": 5.629931301762391,
+      "direction_norm": 6058.2252693361415,
+      "num_pairs": 2,
+      "phone": "d_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1712.1586603193155,
+      "num_pairs": 1,
+      "phone": "d_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1062.1649276908074,
+      "num_pairs": 1,
+      "phone": "e_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 57.84025090499069,
+      "bootstrap_angle_std_deg": 34.71655513181238,
+      "direction_norm": 403.0135351834688,
+      "num_pairs": 9,
+      "phone": "e_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 22.932931597122078,
+      "bootstrap_angle_std_deg": 9.918977093830046,
+      "direction_norm": 1128.608662387324,
+      "num_pairs": 3,
+      "phone": "e_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 26.683583666791815,
+      "bootstrap_angle_std_deg": 6.288217206200637,
+      "direction_norm": 954.8226687480709,
+      "num_pairs": 2,
+      "phone": "e_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 950.2967698589284,
+      "num_pairs": 1,
+      "phone": "e\u02d0_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 7201.631114816894,
+      "num_pairs": 1,
+      "phone": "f_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 6073.53440439951,
+      "num_pairs": 1,
+      "phone": "i_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 2433.8683938642316,
+      "num_pairs": 1,
+      "phone": "i_it",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 42.63927050227877,
+      "bootstrap_angle_std_deg": 43.72204608079623,
+      "direction_norm": 2225.853268643593,
+      "num_pairs": 5,
+      "phone": "i_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 11.59763267756452,
+      "bootstrap_angle_std_deg": 6.964289414946775,
+      "direction_norm": 989.2391903229059,
+      "num_pairs": 7,
+      "phone": "i_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 79.98905702369119,
+      "bootstrap_angle_std_deg": 47.96032384288703,
+      "direction_norm": 2161.988442989606,
+      "num_pairs": 2,
+      "phone": "i_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 9418.696168436982,
+      "num_pairs": 1,
+      "phone": "i_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2758.0095498604574,
+      "num_pairs": 1,
+      "phone": "j_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 5326.024880887787,
+      "num_pairs": 1,
+      "phone": "k_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 66.72617776612763,
+      "bootstrap_angle_std_deg": 33.71022403396671,
+      "direction_norm": 1007.9602275806366,
+      "num_pairs": 3,
+      "phone": "k_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 6919.50468383192,
+      "num_pairs": 1,
+      "phone": "k_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 4006.44779739833,
+      "num_pairs": 1,
+      "phone": "k\u0348_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 14.537558708961003,
+      "bootstrap_angle_std_deg": 7.713672791510564,
+      "direction_norm": 1776.9532134943672,
+      "num_pairs": 3,
+      "phone": "l_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 57.744517241594025,
+      "bootstrap_angle_std_deg": 46.27504442651616,
+      "direction_norm": 1578.8217966097548,
+      "num_pairs": 3,
+      "phone": "l_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 5311.932870095588,
+      "num_pairs": 1,
+      "phone": "l_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 1.2074182697257336e-06,
+      "bootstrap_angle_std_deg": 2.117582368135751e-22,
+      "direction_norm": 1486.5948381981184,
+      "num_pairs": 1,
+      "phone": "l\u02d0_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1717.4749541937538,
+      "num_pairs": 1,
+      "phone": "m_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 58.39635722868231,
+      "bootstrap_angle_std_deg": 44.23953433237283,
+      "direction_norm": 599.9016510242124,
+      "num_pairs": 2,
+      "phone": "m_it",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1394.8497072152281,
+      "num_pairs": 1,
+      "phone": "m_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 74.70745561728378,
+      "bootstrap_angle_std_deg": 14.537586527426456,
+      "direction_norm": 1363.4650509526523,
+      "num_pairs": 2,
+      "phone": "m_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 19.34905599489704,
+      "bootstrap_angle_std_deg": 0.14208130214521822,
+      "direction_norm": 3618.37856808218,
+      "num_pairs": 2,
+      "phone": "m_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 49.318845810682426,
+      "bootstrap_angle_std_deg": 37.5464819567103,
+      "direction_norm": 747.0802158644598,
+      "num_pairs": 2,
+      "phone": "m_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 22.317653981935692,
+      "bootstrap_angle_std_deg": 27.70519092710837,
+      "direction_norm": 3809.8742018025714,
+      "num_pairs": 3,
+      "phone": "n_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 11.178550360706753,
+      "bootstrap_angle_std_deg": 10.013574160750665,
+      "direction_norm": 2618.149400802723,
+      "num_pairs": 5,
+      "phone": "n_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 27.586706623122183,
+      "bootstrap_angle_std_deg": 18.12141274418742,
+      "direction_norm": 1282.0723508047583,
+      "num_pairs": 5,
+      "phone": "n_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2957.48950285173,
+      "num_pairs": 1,
+      "phone": "n\u032a_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 11.28135816917304,
+      "bootstrap_angle_std_deg": 5.830410987994465,
+      "direction_norm": 465.70514527155285,
+      "num_pairs": 3,
+      "phone": "o_it",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 4295.630863971708,
+      "num_pairs": 1,
+      "phone": "o_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 9.45429981252945,
+      "bootstrap_angle_std_deg": 6.8094855295977155,
+      "direction_norm": 1331.9818109386624,
+      "num_pairs": 3,
+      "phone": "o_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 397.71391611750823,
+      "num_pairs": 1,
+      "phone": "o_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 750.579761954604,
+      "num_pairs": 1,
+      "phone": "p_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 4081.494045775802,
+      "num_pairs": 1,
+      "phone": "p_it",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 4061.344566098249,
+      "num_pairs": 1,
+      "phone": "p_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1644.6079612377173,
+      "num_pairs": 1,
+      "phone": "p_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2937.434453593521,
+      "num_pairs": 1,
+      "phone": "p_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 20004.657806505526,
+      "num_pairs": 1,
+      "phone": "p\u031a_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 554.1113622591233,
+      "num_pairs": 1,
+      "phone": "r_it",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 9876.211203157653,
+      "num_pairs": 1,
+      "phone": "r_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 24.56311241255317,
+      "bootstrap_angle_std_deg": 9.540172834082426,
+      "direction_norm": 980.2703304438104,
+      "num_pairs": 2,
+      "phone": "r_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 25.059970823674877,
+      "bootstrap_angle_std_deg": 20.423680335879965,
+      "direction_norm": 4401.723346933514,
+      "num_pairs": 2,
+      "phone": "s_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 38.312367127053136,
+      "bootstrap_angle_std_deg": 29.00450350238207,
+      "direction_norm": 2775.454118419594,
+      "num_pairs": 2,
+      "phone": "s_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2041.0341663581423,
+      "num_pairs": 1,
+      "phone": "s_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1854.8363342315865,
+      "num_pairs": 1,
+      "phone": "s\u02b0_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 7107.951508350219,
+      "num_pairs": 1,
+      "phone": "s\u02b2_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 1.2074182697257336e-06,
+      "bootstrap_angle_std_deg": 2.117582368135751e-22,
+      "direction_norm": 6369.598481401784,
+      "num_pairs": 1,
+      "phone": "s\u032a_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 50.234191233752426,
+      "bootstrap_angle_std_deg": 37.30514934501508,
+      "direction_norm": 1335.7638775780788,
+      "num_pairs": 3,
+      "phone": "t_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 23.622147296654155,
+      "bootstrap_angle_std_deg": 6.864222857699305,
+      "direction_norm": 8653.844188234218,
+      "num_pairs": 2,
+      "phone": "t_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 9.276745455595147,
+      "bootstrap_angle_std_deg": 1.127270280504979,
+      "direction_norm": 3172.767208342852,
+      "num_pairs": 2,
+      "phone": "t_it",
+      "target_technique": "glissando"
+    },
+    {
+      "bootstrap_angle_mean_deg": 34.013385439477645,
+      "bootstrap_angle_std_deg": 50.663790104699025,
+      "direction_norm": 2876.519314422684,
+      "num_pairs": 3,
+      "phone": "t_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 79.673064295371,
+      "bootstrap_angle_std_deg": 42.600572993113055,
+      "direction_norm": 467.5273467593679,
+      "num_pairs": 2,
+      "phone": "t_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1051.912760645778,
+      "num_pairs": 1,
+      "phone": "t\u0255_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2246.380100241194,
+      "num_pairs": 1,
+      "phone": "t\u0255\u02b0_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 5571.139891239861,
+      "num_pairs": 1,
+      "phone": "t\u032a_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 13.270367915256212,
+      "bootstrap_angle_std_deg": 1.5488955078145423,
+      "direction_norm": 5637.113662644877,
+      "num_pairs": 2,
+      "phone": "t\u0361\u0283_it",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1369.1248617554945,
+      "num_pairs": 1,
+      "phone": "u_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1522.9177268863943,
+      "num_pairs": 1,
+      "phone": "u_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 19.44142925249057,
+      "bootstrap_angle_std_deg": 0.267379968049268,
+      "direction_norm": 2889.397033221769,
+      "num_pairs": 2,
+      "phone": "u_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 3312.051486183172,
+      "num_pairs": 1,
+      "phone": "u_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2040.3511473770093,
+      "num_pairs": 1,
+      "phone": "u\u02d0_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 46.21880670194576,
+      "bootstrap_angle_std_deg": 34.61013225257178,
+      "direction_norm": 3783.051819163341,
+      "num_pairs": 2,
+      "phone": "v_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 4467.133112936213,
+      "num_pairs": 1,
+      "phone": "v_it",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2849.8143657584524,
+      "num_pairs": 1,
+      "phone": "x_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 532.3259637493175,
+      "num_pairs": 1,
+      "phone": "y_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 30.096848731753106,
+      "bootstrap_angle_std_deg": 27.83846646853687,
+      "direction_norm": 2108.7053950296595,
+      "num_pairs": 8,
+      "phone": "\u0250_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 65.2882065564135,
+      "bootstrap_angle_std_deg": 25.943839067460104,
+      "direction_norm": 295.3733756749762,
+      "num_pairs": 8,
+      "phone": "\u0250_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 6128.706831988313,
+      "num_pairs": 1,
+      "phone": "\u0250_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 6.866636057389202,
+      "bootstrap_angle_std_deg": 0.2926185914244756,
+      "direction_norm": 1809.2374723407,
+      "num_pairs": 2,
+      "phone": "\u0251\u0303_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1091.9014145882404,
+      "num_pairs": 1,
+      "phone": "\u0254\u0303_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 3058.4019124189545,
+      "num_pairs": 1,
+      "phone": "\u0255\u02b0_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1787.2647758438718,
+      "num_pairs": 1,
+      "phone": "\u0255\u02b0_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 575.5320454634544,
+      "num_pairs": 1,
+      "phone": "\u0259_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 20.706405802777656,
+      "bootstrap_angle_std_deg": 9.017229832744048,
+      "direction_norm": 756.3078543802195,
+      "num_pairs": 3,
+      "phone": "\u025b_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 10.58480546437324,
+      "bootstrap_angle_std_deg": 0.9632200093328592,
+      "direction_norm": 2405.77777323322,
+      "num_pairs": 2,
+      "phone": "\u025b\u02d0_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1164.9172609985574,
+      "num_pairs": 1,
+      "phone": "\u025b\u02d0_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 2624.7755375826537,
+      "num_pairs": 1,
+      "phone": "\u025b\u0303_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 69.087061746821,
+      "bootstrap_angle_std_deg": 28.89251496854786,
+      "direction_norm": 788.0912451339639,
+      "num_pairs": 3,
+      "phone": "\u0268_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 45.18013741401571,
+      "bootstrap_angle_std_deg": 35.48507875837352,
+      "direction_norm": 1150.2565301396867,
+      "num_pairs": 3,
+      "phone": "\u0268_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 12.15517304444274,
+      "bootstrap_angle_std_deg": 1.3073329400789677,
+      "direction_norm": 2635.0150820868653,
+      "num_pairs": 2,
+      "phone": "\u026a_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 73.70827413818363,
+      "bootstrap_angle_std_deg": 65.90822591464003,
+      "direction_norm": 3266.787418399276,
+      "num_pairs": 2,
+      "phone": "\u026d_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 1415.2494173643709,
+      "num_pairs": 1,
+      "phone": "\u026d_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1862.439114964054,
+      "num_pairs": 1,
+      "phone": "\u0272_ru",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 0.0,
+      "bootstrap_angle_std_deg": 0.0,
+      "direction_norm": 1020.4468645178878,
+      "num_pairs": 1,
+      "phone": "\u027e_ko",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 5057.265663524667,
+      "num_pairs": 1,
+      "phone": "\u027e_ko",
+      "target_technique": "falsetto"
+    },
+    {
+      "bootstrap_angle_mean_deg": 41.101909219676976,
+      "bootstrap_angle_std_deg": 16.351350633938647,
+      "direction_norm": 515.0632551004022,
+      "num_pairs": 4,
+      "phone": "\u0281_fr",
+      "target_technique": "breathy"
+    },
+    {
+      "bootstrap_angle_mean_deg": 8.537736462515943e-07,
+      "bootstrap_angle_std_deg": 4.235164736271502e-22,
+      "direction_norm": 2671.6780756029693,
+      "num_pairs": 1,
+      "phone": "\u028e_ru",
+      "target_technique": "breathy"
+    }
+  ],
+  "layer_or_stream": "frame25ms_hop20ms",
+  "run_id": "technique_directions",
+  "stage": "technique_stage_a"
+}

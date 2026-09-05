@@ -1,0 +1,46 @@
+{
+  "checkpoint_hash": "speechbrain_spkrec_ecapa_voxceleb",
+  "controls": "none",
+  "extractor": "ecapa_tdnn",
+  "fold_metrics": [
+    {
+      "accuracy": 0.9979716024340771,
+      "fold": 0,
+      "orientation": "aligned",
+      "separability_auc": 0.9977231329690346,
+      "signed_auc": 0.9977231329690346,
+      "test_items": 1479,
+      "test_speakers": 15,
+      "train_items": 7068,
+      "train_speakers": 70
+    }
+  ],
+  "folds_completed": 1,
+  "folds_requested": 1,
+  "layer_or_stream": "embedding",
+  "learning_rate": 0.05,
+  "manifest_hash": "4b5dbd440c32e76d110bac822ac2763f181f73fed003c1da7d2dc152857bdbc4",
+  "metrics": {
+    "accuracy": 0.9979716024340771,
+    "accuracy_mean": 0.9979716024340771,
+    "accuracy_std": 0.0,
+    "auc": 0.9977231329690346,
+    "separability_auc_mean": 0.9977231329690346,
+    "separability_auc_std": 0.0,
+    "signed_auc_mean": 0.9977231329690346,
+    "signed_auc_std": 0.0
+  },
+  "optimization_steps": 1200,
+  "orientation_counts": {
+    "aligned": 1
+  },
+  "probe_type": "numpy_logistic_regression",
+  "representation": "mean_std",
+  "run_id": "mode_probe",
+  "seed": 13,
+  "shuffle_labels": false,
+  "split_name": "speaker_disjoint",
+  "stage": "stage_a",
+  "target": "mode_binary",
+  "train_only_residualization": false
+}

@@ -1,0 +1,17 @@
+{
+  "checkpoint_hash": "local_wave_v1",
+  "extractor": "acoustic_baseline",
+  "layer_or_stream": "frame25ms_hop20ms",
+  "manifest_hash": "e011f9ec7813646d2cab5ceee68de4047bb28202efbb6837517ecfb4039a76f8",
+  "num_speakers": 18,
+  "probe_type": "cosine_retrieval",
+  "representation": "mean_std_centroid",
+  "run_id": "speaker_retrieval",
+  "singing_to_speech_recall_at_1": 0.1111111111111111,
+  "singing_to_speech_recall_at_5": 0.4444444444444444,
+  "speech_to_singing_recall_at_1": 0.1111111111111111,
+  "speech_to_singing_recall_at_5": 0.4444444444444444,
+  "split_name": "all_speaker_centroids",
+  "stage": "stage_a",
+  "target": "speaker_id"
+}

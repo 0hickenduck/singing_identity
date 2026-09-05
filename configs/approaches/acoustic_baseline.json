@@ -1,0 +1,5 @@
+{
+  "name": "acoustic_baseline",
+  "features": ["f0_mean_hz", "f0_std_hz", "f0_voiced_pct", "energy_mean", "energy_std", "rms_db"],
+  "standardize": true
+}

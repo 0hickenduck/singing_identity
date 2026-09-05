@@ -4,7 +4,7 @@ import unittest
 
 import numpy as np
 
-from scripts.probing.run_identity_residual_final_validation import (
+from legacy.probing.run_identity_residual_final_validation import (
     add_global_rows,
     mode_probe_centroid,
     paired_split_delta_summaries,

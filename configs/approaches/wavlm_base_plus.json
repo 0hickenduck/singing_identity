@@ -1,0 +1,7 @@
+{
+  "name": "wavlm_base_plus",
+  "hf_model_id": "microsoft/wavlm-base-plus",
+  "layers": [3, 6, 9, 12],
+  "pooling": "mean",
+  "dimension": 768
+}

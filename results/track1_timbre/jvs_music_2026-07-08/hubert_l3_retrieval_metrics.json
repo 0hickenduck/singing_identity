@@ -1,0 +1,35 @@
+{
+  "chance_recall_at_1": 0.01,
+  "checkpoint_hash": "facebook_hubert_base_ls960",
+  "controls": "none",
+  "extractor": "hubert_base",
+  "layer_or_stream": "3",
+  "manifest_hash": "ee98906853d4e42f04d69b54924ea54389b916a31522b55c5b271f36ba6a6313",
+  "num_speakers": 100,
+  "probe_type": "cosine_retrieval",
+  "representation": "mean_std_centroid",
+  "row_split_counts": {
+    "dev": 1514,
+    "test": 1479,
+    "train": 7068
+  },
+  "run_id": "speaker_retrieval",
+  "seed": 13,
+  "singing_to_speech_map": 0.2395471170079172,
+  "singing_to_speech_recall_at_1": 0.13,
+  "singing_to_speech_recall_at_1_norm": 13.0,
+  "singing_to_speech_recall_at_5": 0.32,
+  "speaker_split_counts": {
+    "dev": 15,
+    "test": 15,
+    "train": 70
+  },
+  "speech_to_singing_map": 0.14714113011163066,
+  "speech_to_singing_recall_at_1": 0.04,
+  "speech_to_singing_recall_at_1_norm": 4.0,
+  "speech_to_singing_recall_at_5": 0.27,
+  "split_name": "all_speaker_centroids_train_fit_residualizer",
+  "stage": "stage_a",
+  "target": "speaker_id",
+  "train_only_residualization": false
+}

@@ -1,0 +1,6 @@
+{
+  "dataset_name": "GTSinger",
+  "raw_path": "/localdisk/bowen/singing_identity/data/GTSinger",
+  "manifest": "data/processed/gtsinger_utterances.jsonl",
+  "pairs": "data/processed/gtsinger_pairs.jsonl"
+}

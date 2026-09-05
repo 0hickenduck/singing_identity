@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from scripts.probing.run_identity_residual_metric_robustness import (
+from legacy.probing.run_identity_residual_metric_robustness import (
     cosine_scores,
     euclidean_scores,
     fit_oas_dual,

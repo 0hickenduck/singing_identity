@@ -1,0 +1,35 @@
+{
+  "chance_recall_at_1": 0.05,
+  "checkpoint_hash": "speechbrain_spkrec_ecapa_voxceleb",
+  "controls": "f0_energy_duration_voiced_rms",
+  "extractor": "ecapa_tdnn",
+  "layer_or_stream": "embedding",
+  "manifest_hash": "5dcd0fb8ca413763e04fdb9e9464bfd3b6292e68b7451fff0a61024b6c5efce6",
+  "num_speakers": 20,
+  "probe_type": "cosine_retrieval",
+  "representation": "mean_std_centroid",
+  "row_split_counts": {
+    "dev": 909,
+    "test": 892,
+    "train": 4215
+  },
+  "run_id": "speaker_retrieval",
+  "seed": 13,
+  "singing_to_speech_map": 0.925,
+  "singing_to_speech_recall_at_1": 0.85,
+  "singing_to_speech_recall_at_1_norm": 17.0,
+  "singing_to_speech_recall_at_5": 1.0,
+  "speaker_split_counts": {
+    "dev": 3,
+    "test": 3,
+    "train": 14
+  },
+  "speech_to_singing_map": 0.9416666666666667,
+  "speech_to_singing_recall_at_1": 0.9,
+  "speech_to_singing_recall_at_1_norm": 18.0,
+  "speech_to_singing_recall_at_5": 1.0,
+  "split_name": "all_speaker_centroids_train_fit_residualizer",
+  "stage": "stage_a",
+  "target": "speaker_id",
+  "train_only_residualization": true
+}

@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "singing-identity"
 version = "0.1.0"
@@ -6,6 +10,9 @@ requires-python = ">=3.9"
 dependencies = [
     "numpy>=1.23",
 ]
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [project.optional-dependencies]
 tables = [
@@ -25,5 +32,9 @@ notebook = [
     "marimo>=0.14",
 ]
 
-[tool.uv]
-package = false
+[tool.pytest.ini_options]
+pythonpath = [
+    ".",
+    "src",
+    "legacy",
+]

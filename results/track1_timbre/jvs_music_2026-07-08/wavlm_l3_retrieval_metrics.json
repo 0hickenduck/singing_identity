@@ -1,0 +1,35 @@
+{
+  "chance_recall_at_1": 0.01,
+  "checkpoint_hash": "microsoft_wavlm_base_plus",
+  "controls": "none",
+  "extractor": "wavlm_base_plus",
+  "layer_or_stream": "3",
+  "manifest_hash": "ee98906853d4e42f04d69b54924ea54389b916a31522b55c5b271f36ba6a6313",
+  "num_speakers": 100,
+  "probe_type": "cosine_retrieval",
+  "representation": "mean_std_centroid",
+  "row_split_counts": {
+    "dev": 1514,
+    "test": 1479,
+    "train": 7068
+  },
+  "run_id": "speaker_retrieval",
+  "seed": 13,
+  "singing_to_speech_map": 0.22175690595079886,
+  "singing_to_speech_recall_at_1": 0.09,
+  "singing_to_speech_recall_at_1_norm": 9.0,
+  "singing_to_speech_recall_at_5": 0.34,
+  "speaker_split_counts": {
+    "dev": 15,
+    "test": 15,
+    "train": 70
+  },
+  "speech_to_singing_map": 0.16075669142486224,
+  "speech_to_singing_recall_at_1": 0.08,
+  "speech_to_singing_recall_at_1_norm": 8.0,
+  "speech_to_singing_recall_at_5": 0.16,
+  "split_name": "all_speaker_centroids_train_fit_residualizer",
+  "stage": "stage_a",
+  "target": "speaker_id",
+  "train_only_residualization": false
+}

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from scripts.probing.run_identity_residual_metric_robustness import cosine_scores, fit_oas_dual
-from scripts.probing.run_identity_residual_paper_supplement import speaker_interval
+from legacy.probing.run_identity_residual_metric_robustness import cosine_scores, fit_oas_dual
+from legacy.probing.run_identity_residual_paper_supplement import speaker_interval
 
 
 def test_x1_identical_layers_have_identical_oas_rankings() -> None:

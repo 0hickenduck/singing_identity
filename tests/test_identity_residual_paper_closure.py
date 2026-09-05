@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from scripts.probing.run_identity_residual_paper_closure import (
+from legacy.probing.run_identity_residual_paper_closure import (
     BASELINE_CONDITIONS,
     HEADLINE_MODELS,
     cosine_scores,

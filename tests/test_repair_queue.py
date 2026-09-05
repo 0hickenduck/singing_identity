@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.data_prep.repair_gtsinger_missing_wavs import load_existing_queue, write_queue
+from legacy.data_prep.repair_gtsinger_missing_wavs import load_existing_queue, write_queue
 
 
 class RepairQueueTest(unittest.TestCase):

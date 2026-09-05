@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.run_targeted_repair_then_stage1 import final_stage1_status, write_json
+from legacy.run_targeted_repair_then_stage1 import final_stage1_status, write_json
 
 
 class RepairWrapperTest(unittest.TestCase):

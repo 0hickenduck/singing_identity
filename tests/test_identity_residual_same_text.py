@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from scripts.probing.run_identity_residual_same_text import (
+from legacy.probing.run_identity_residual_same_text import (
     normalize_lexical_text,
     select_clean_control_pairs,
 )

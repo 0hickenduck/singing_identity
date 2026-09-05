@@ -1,0 +1,17 @@
+{
+  "alpha": 1.0,
+  "checkpoint_hash": "local_wave_v1",
+  "cosine_mean": 0.5082676978597066,
+  "cosine_std": 0.2492931320185221,
+  "extractor": "acoustic_baseline",
+  "global_mean_residual_cosine_mean": 0.7024153169720226,
+  "layer_or_stream": "frame25ms_hop20ms",
+  "model": "ridge_speech_to_delta",
+  "mse_mean": 212435.34569234983,
+  "run_id": "micro_mapper_ridge",
+  "stage": "stage_b",
+  "test_pairs": 4,
+  "test_speakers": 3,
+  "train_pairs": 35,
+  "train_speakers": 15
+}
